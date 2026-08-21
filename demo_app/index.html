@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CultivaRío 2026 - Festival Cultural Río Cuarto (Demo App Proyecto en Equipo)</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+  <!-- TailwindCSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#faf5ff',
+              100: '#f3e8ff',
+              500: '#a855f7',
+              600: '#9333ea',
+              700: '#7e22ce',
+              900: '#3b0764',
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Estilos de activo para la barra de navegación */
+    [data-view-target].active-nav-link {
+      background-color: rgba(147, 51, 234, 0.2) !important;
+      color: #c084fc !important; /* purple-300 */
+      border: 1px solid rgba(168, 85, 247, 0.4) !important;
+      border-radius: 0.75rem !important;
+      padding: 0.4rem 0.8rem !important;
+    }
+
+    /* Regla para botones con fondos oscuros/saturados: SIEMPRE TEXTO BLANCO */
+    .force-text-white,
+    button.bg-purple-600,
+    button.bg-emerald-600,
+    button.bg-red-600,
+    a.bg-purple-600,
+    .bg-gradient-to-r {
+      color: #ffffff !important;
+    }
+
+    /* Adaptación completa a Light Mode */
+    body.light-mode {
+      background-color: #f8fafc !important;
+      color: #0f172a !important;
+    }
+
+    /* Header transparente en Light Mode */
+    body.light-mode header {
+      background-color: rgba(255, 255, 255, 0.95) !important;
+      border-color: #e2e8f0 !important;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Opciones del menú de navegación en Light Mode */
+    body.light-mode nav [data-view-target] {
+      color: #475569 !important;
+      padding: 0.4rem 0.8rem !important;
+    }
+    body.light-mode nav [data-view-target]:hover {
+      color: #7e22ce !important;
+    }
+    body.light-mode nav [data-view-target].active-nav-link {
+      background-color: #f3e8ff !important; /* Fondo violeta suave */
+      color: #6b21a8 !important; /* Texto violeta oscuro de alto contraste */
+      border-color: #d8b4fe !important;
+      font-weight: 700 !important;
+    }
+
+    /* Tarjetas y Contenedores en Light Mode */
+    body.light-mode .bg-slate-900,
+    body.light-mode .bg-slate-950 {
+      background-color: #ffffff !important;
+      border-color: #e2e8f0 !important;
+      color: #1e293b !important;
+    }
+
+    body.light-mode .bg-slate-900\/40,
+    body.light-mode .bg-slate-900\/60,
+    body.light-mode .bg-slate-950\/80,
+    body.light-mode .bg-slate-950\/85 {
+      background-color: rgba(255, 255, 255, 0.95) !important;
+      border-color: #cbd5e1 !important;
+    }
+
+    /* Títulos e iconos en tarjetas en Light Mode */
+    body.light-mode h1, 
+    body.light-mode h2, 
+    body.light-mode h3, 
+    body.light-mode h4,
+    body.light-mode .card-title-text,
+    body.light-mode .brand-title {
+      color: #0f172a !important;
+    }
+
+    body.light-mode .text-slate-300,
+    body.light-mode .text-slate-400 {
+      color: #475569 !important;
+    }
+
+    body.light-mode .border-slate-800,
+    body.light-mode .border-slate-700 {
+      border-color: #e2e8f0 !important;
+    }
+
+    /* Inputs y Selects en Light Mode */
+    body.light-mode input, 
+    body.light-mode select {
+      background-color: #f8fafc !important;
+      color: #0f172a !important;
+      border-color: #cbd5e1 !important;
+    }
+    body.light-mode input::placeholder {
+      color: #94a3b8 !important;
+    }
+
+    /* Botones de acción en Light Mode */
+    body.light-mode .btn-detail-action {
+      background-color: #f1f5f9 !important;
+      color: #1e293b !important;
+      border-color: #cbd5e1 !important;
+    }
+    body.light-mode .btn-detail-action:hover {
+      border-color: #9333ea !important;
+      color: #7e22ce !important;
+    }
+
+    /* Botones de Filtro en Light Mode */
+    body.light-mode [data-filter-category]:not(.bg-purple-600) {
+      background-color: #ffffff !important;
+      color: #475569 !important;
+      border-color: #cbd5e1 !important;
+    }
+
+    /* Badges de tarjeta en Light Mode */
+    body.light-mode .badge-category {
+      background-color: #f3e8ff !important;
+      color: #6b21a8 !important;
+      border-color: #e9d5ff !important;
+    }
+
+    body.light-mode .badge-price {
+      background-color: #d1fae5 !important;
+      color: #065f46 !important;
+      border-color: #a7f3d0 !important;
+    }
+
+    /* Icon Box en tarjetas */
+    body.light-mode .icon-bg-box {
+      background-color: #f1f5f9 !important;
+      border-color: #e2e8f0 !important;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-purple-500 selection:text-white transition-colors duration-300 min-h-screen flex flex-col justify-between">
+
+  <!-- ================= NAV BAR RESPONSIVE (CON SPA ROUTER & TEMA) ================= -->
+  <header class="sticky top-0 z-50 bg-slate-950/85 backdrop-blur-md border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo Principal -->
+        <a href="#" data-view-target="landing" class="flex items-center gap-3 group">
+          <span class="text-3xl p-2 rounded-xl bg-purple-600/20 text-purple-400 group-hover:scale-110 transition-transform">🎭</span>
+          <div>
+            <span class="font-heading font-extrabold text-xl sm:text-2xl tracking-tight text-white brand-title block">Cultiva<span class="text-purple-400">Río</span></span>
+            <span class="text-xs text-slate-400 font-semibold tracking-wider uppercase">Río Cuarto • Córdoba</span>
+          </div>
+        </a>
+
+        <!-- Desktop SPA Navigation Menu -->
+        <nav class="hidden md:flex items-center gap-4 font-medium text-sm">
+          <a href="#" data-view-target="landing" class="text-slate-300 hover:text-purple-400 transition-colors">📍 Inicio</a>
+          <a href="#" data-view-target="catalogo" class="text-slate-300 hover:text-purple-400 transition-colors">🎭 Catálogo de Eventos</a>
+          <a href="#" data-view-target="dashboard" class="text-slate-300 hover:text-purple-400 transition-colors flex items-center gap-2">
+            📊 Dashboard 
+            <span class="reservas-badge-count hidden px-2 py-0.5 rounded-full text-xs font-bold bg-purple-600 text-white force-text-white">0</span>
+          </a>
+        </nav>
+
+        <!-- Controles de la Barra Superior -->
+        <div class="hidden md:flex items-center gap-4">
+          <!-- Botón Toggle Dark/Light Mode -->
+          <button id="theme-toggle-btn" class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs font-semibold text-slate-300 hover:border-purple-500 transition-all theme-btn-toggle">
+            <span id="theme-icon">🌙</span>
+            <span id="theme-label">Modo Oscuro</span>
+          </button>
+
+          <!-- Botón Directo Reserva -->
+          <a href="#" data-view-target="catalogo" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-500 text-white force-text-white font-semibold text-xs shadow-lg shadow-purple-600/20 hover:shadow-purple-600/40 transition-all">
+            🎫 Reservar Entradas
+          </a>
+        </div>
+
+        <!-- Hamburguesa Mobile -->
+        <button id="menu-btn" class="md:hidden p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-300">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú Desplegable Mobile -->
+    <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-4 pt-3 pb-6 space-y-3">
+      <a href="#" data-view-target="landing" class="block py-2 text-slate-200 font-semibold">📍 Inicio</a>
+      <a href="#" data-view-target="catalogo" class="block py-2 text-slate-200 font-semibold">🎭 Catálogo de Eventos</a>
+      <a href="#" data-view-target="dashboard" class="block py-2 text-slate-200 font-semibold">📊 Dashboard de Reservas</a>
+    </div>
+  </header>
+
+
+  <!-- ================= MAIN CONTAINER CON VISTAS SPA ================= -->
+  <main class="flex-grow">
+
+    <!-- ================= VISTA 1: LANDING PAGE (#view-landing) ================= -->
+    <section id="view-landing" class="spa-view">
+      
+      <!-- HERO BANNER -->
+      <div class="relative pt-12 pb-20 md:pt-24 md:pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-950/80 border border-purple-800/50 text-purple-300 text-xs sm:text-sm font-semibold mb-6 badge-category">
+            📍 Río Cuarto, Córdoba • 14 al 16 de Noviembre 2026
+          </div>
+          <h1 class="font-heading font-extrabold text-4xl sm:text-6xl lg:text-7xl text-white max-w-4xl mx-auto leading-tight">
+            El Encuentro Cultural Más Grande del <span class="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-cyan-300 to-amber-300">Imperio del Sur</span>
+          </h1>
+          <p class="mt-6 text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto">
+            Música en vivo, peñas folclóricas, muestras de arte urbano, gastronomía regional cordobesa y talleres al aire libre en el Parque del Andino.
+          </p>
+          <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+            <button onclick="switchView('catalogo')" class="px-8 py-4 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white force-text-white font-bold text-lg shadow-xl shadow-purple-600/30 hover:scale-105 transition-all">
+              🎭 Explorar Catálogo de Eventos
+            </button>
+            <button onclick="switchView('dashboard')" class="px-8 py-4 rounded-2xl bg-slate-900 border border-slate-700 text-slate-200 font-bold text-lg hover:border-purple-500 transition-all btn-detail-action">
+              📊 Ver Mi Dashboard
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN DESTACADOS DE LANDING -->
+      <div class="py-16 bg-slate-900/40 border-y border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center max-w-3xl mx-auto mb-12">
+            <h2 class="font-heading font-bold text-3xl sm:text-4xl text-white">¿Qué vas a vivir en CultivaRío 2026?</h2>
+            <p class="text-slate-400 text-sm mt-2">Actividades pensadas para toda la familia con acceso libre y gratuito.</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6">
+              <span class="text-4xl">🎸</span>
+              <h3 class="font-heading font-bold text-xl text-white card-title-text mt-4">Música & Peñas</h3>
+              <p class="mt-2 text-slate-400 text-sm">Escenarios simultáneos con folclore, cuarteto cordobés y rock indie.</p>
+            </div>
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6">
+              <span class="text-4xl">🎨</span>
+              <h3 class="font-heading font-bold text-xl text-white card-title-text mt-4">Arte & Muralismo</h3>
+              <p class="mt-2 text-slate-400 text-sm">Intervenciones plásticas en vivo y exposiciones en el Galpón de la Cultura.</p>
+            </div>
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6">
+              <span class="text-4xl">🍷</span>
+              <h3 class="font-heading font-bold text-xl text-white card-title-text mt-4">Sabores Regionales</h3>
+              <p class="mt-2 text-slate-400 text-sm">Patio gastronómico con asado criollo, empanadas y cerveza artesanal.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FORMULARIO RÁPIDO DE RESERVA -->
+      <div class="py-20 max-w-4xl mx-auto px-4">
+        <div class="bg-slate-900 border border-slate-800 p-8 sm:p-10 rounded-3xl shadow-2xl">
+          <h2 class="font-heading font-bold text-2xl sm:text-3xl text-white card-title-text text-center">Reserva Rápida de Entrada Gratuita QR</h2>
+          <p class="text-xs sm:text-sm text-slate-400 text-center mt-1">Completa tus datos para recibir tu entrada prioritaria en tu correo electrónico.</p>
+
+          <form id="ticket-form" class="mt-8 space-y-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Nombre Completo</label>
+                <input type="text" placeholder="Ej: María González" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-500">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Correo Electrónico</label>
+                <input type="email" placeholder="maria@ejemplo.com" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-500">
+              </div>
+            </div>
+
+            <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-500 text-white force-text-white font-bold text-sm shadow-lg shadow-purple-600/30 hover:scale-[1.01] transition-all">
+              🎫 Obtener Mi Entrada QR Gratuita Ahora
+            </button>
+          </form>
+
+          <div id="form-msg" class="hidden mt-4 p-4 rounded-xl bg-emerald-950/90 border border-emerald-800 text-emerald-300 text-xs sm:text-sm text-center">
+            🎉 ¡Entrada generada con éxito! Revisa tu email para ver el código QR y tus entradas guardadas.
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- ================= VISTA 2: CATÁLOGO FILTRABLE (#view-catalogo) ================= -->
+    <section id="view-catalogo" class="spa-view hidden py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Encabezado de Catálogo -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+          <div>
+            <h1 class="font-heading font-extrabold text-3xl sm:text-4xl text-white">Catálogo de Atracciones & Eventos</h1>
+            <p class="text-slate-400 text-sm mt-1">Filtra por categoría o busca en tiempo real sobre nuestro dataset dinámico.</p>
+          </div>
+          <span id="catalog-count" class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-purple-400 font-semibold text-xs shrink-0 badge-category">
+            Cargando atracciones...
+          </span>
+        </div>
+
+        <!-- Barra de Búsqueda y Botones de Categoría -->
+        <div class="bg-slate-900 border border-slate-800 p-4 sm:p-6 rounded-3xl mb-10 space-y-4">
+          <div>
+            <input id="catalog-search" type="text" placeholder="🔍 Buscar por nombre, artista o palabra clave (ej: folclore, muralismo, cerveza)..." class="w-full bg-slate-950 border border-slate-800 rounded-2xl px-5 py-3.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-purple-500">
+          </div>
+
+          <div class="flex flex-wrap items-center gap-2">
+            <button data-filter-category="all" class="px-4 py-2 rounded-xl bg-purple-600 text-white force-text-white text-xs font-semibold shadow-md">
+              Todos los Eventos
+            </button>
+            <button data-filter-category="musica" class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 text-xs font-semibold hover:border-purple-500">
+              🎸 Música en Vivo
+            </button>
+            <button data-filter-category="arte" class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 text-xs font-semibold hover:border-purple-500">
+              🎨 Muestra de Arte
+            </button>
+            <button data-filter-category="gastronomia" class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 text-xs font-semibold hover:border-purple-500">
+              🍷 Gastronomía
+            </button>
+            <button data-filter-category="talleres" class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 text-xs font-semibold hover:border-purple-500">
+              🧵 Talleres & Artesanías
+            </button>
+          </div>
+        </div>
+
+        <!-- Grid de Tarjetas Renderizadas Dinámicamente -->
+        <div id="catalog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Se completa mediante app.js -->
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= VISTA 3: DASHBOARD (#view-dashboard) ================= -->
+    <section id="view-dashboard" class="spa-view hidden py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="mb-8">
+          <h1 class="font-heading font-extrabold text-3xl sm:text-4xl text-white">Dashboard de Mis Reservas & Métricas</h1>
+          <p class="text-slate-400 text-sm mt-1">Panel de control con métricas en tiempo real y persistencia en LocalStorage.</p>
+        </div>
+
+        <!-- Tarjetas de Métricas -->
+        <div id="dashboard-stats" class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+          <!-- Se completa mediante app.js -->
+        </div>
+
+        <!-- Tabla de Reservas del Usuario -->
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8">
+          <h2 class="font-heading font-bold text-xl text-white card-title-text mb-4">Detalle de Mis Entradas Reservadas</h2>
+          <div id="dashboard-reservations-table">
+            <!-- Se completa mediante app.js -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ================= MODAL EMERGENTE DE DETALLE ================= -->
+  <div id="event-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 w-full max-w-xl rounded-3xl p-6 sm:p-8 shadow-2xl relative">
+      <button id="close-modal-btn" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl p-2">✕</button>
+      <div id="modal-body-content">
+        <!-- Se completa dinámicamente mediante app.js -->
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ================= FOOTER ENRIQUECIDO ================= -->
+  <footer class="bg-slate-950 border-t border-slate-900 py-12 text-slate-400 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+      <div class="flex justify-center items-center gap-3">
+        <span class="text-2xl">🎭</span>
+        <span class="font-heading font-extrabold text-lg text-white card-title-text">CultivaRío 2026</span>
+      </div>
+      <p class="max-w-xl mx-auto text-slate-400">
+        Proyecto Demo del Seminario "Desarrollo de Software con Google Antigravity 2.0". Implementación de referencia para el Desafío Integrador en Equipos.
+      </p>
+      <div class="flex flex-wrap justify-center gap-2 pt-2">
+        <span class="px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-slate-300">🪐 Antigravity 2.0</span>
+        <span class="px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-slate-300">🛡️ Gentle-AI (SDD)</span>
+        <span class="px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-slate-300">🧠 Engram Memory</span>
+        <span class="px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-slate-300">📚 Master Context Verified</span>
+      </div>
+      <p class="text-slate-600 pt-4">© 2026 CultivaRío • Río Cuarto, Córdoba.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

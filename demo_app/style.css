@@ -1,0 +1,143 @@
+/**
+ * CultivaRío 2026 - Estilos complementarios y variables CSS de tema
+ * Compatible con TailwindCSS CDN y soporte para Dark/Light Mode
+ */
+
+:root {
+  --bg-dark: #020617;
+  --bg-light: #f8fafc;
+  --brand-purple: #9333ea;
+  --brand-cyan: #06b6d4;
+  --brand-amber: #fbbf24;
+}
+
+/* Estilos de activo para la barra de navegación */
+[data-view-target].active-nav-link {
+  background-color: rgba(147, 51, 234, 0.2) !important;
+  color: #c084fc !important; /* purple-300 */
+  border: 1px solid rgba(168, 85, 247, 0.4) !important;
+  border-radius: 0.75rem !important;
+  padding: 0.4rem 0.8rem !important;
+}
+
+/* Regla para botones con fondos oscuros/saturados: SIEMPRE TEXTO BLANCO */
+.force-text-white,
+button.bg-purple-600,
+button.bg-emerald-600,
+button.bg-red-600,
+a.bg-purple-600,
+.bg-gradient-to-r {
+  color: #ffffff !important;
+}
+
+/* Adaptación completa a Light Mode */
+body.light-mode {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+/* Header transparente en Light Mode */
+body.light-mode header {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* Opciones del menú de navegación en Light Mode */
+body.light-mode nav [data-view-target] {
+  color: #475569 !important;
+  padding: 0.4rem 0.8rem !important;
+}
+body.light-mode nav [data-view-target]:hover {
+  color: #7e22ce !important;
+}
+body.light-mode nav [data-view-target].active-nav-link {
+  background-color: #f3e8ff !important;
+  color: #6b21a8 !important;
+  border-color: #d8b4fe !important;
+  font-weight: 700 !important;
+}
+
+/* Tarjetas y Contenedores en Light Mode */
+body.light-mode .bg-slate-900,
+body.light-mode .bg-slate-950 {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  color: #1e293b !important;
+}
+
+body.light-mode .bg-slate-900\/40,
+body.light-mode .bg-slate-900\/60,
+body.light-mode .bg-slate-950\/80,
+body.light-mode .bg-slate-950\/85 {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: #cbd5e1 !important;
+}
+
+/* Títulos e iconos en tarjetas en Light Mode */
+body.light-mode h1, 
+body.light-mode h2, 
+body.light-mode h3, 
+body.light-mode h4,
+body.light-mode .card-title-text,
+body.light-mode .brand-title {
+  color: #0f172a !important;
+}
+
+body.light-mode .text-slate-300,
+body.light-mode .text-slate-400 {
+  color: #475569 !important;
+}
+
+body.light-mode .border-slate-800,
+body.light-mode .border-slate-700 {
+  border-color: #e2e8f0 !important;
+}
+
+/* Inputs y Selects en Light Mode */
+body.light-mode input, 
+body.light-mode select {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+body.light-mode input::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Botones de acción en Light Mode */
+body.light-mode .btn-detail-action {
+  background-color: #f1f5f9 !important;
+  color: #1e293b !important;
+  border-color: #cbd5e1 !important;
+}
+body.light-mode .btn-detail-action:hover {
+  border-color: #9333ea !important;
+  color: #7e22ce !important;
+}
+
+/* Botones de Filtro en Light Mode */
+body.light-mode [data-filter-category]:not(.bg-purple-600) {
+  background-color: #ffffff !important;
+  color: #475569 !important;
+  border-color: #cbd5e1 !important;
+}
+
+/* Badges de tarjeta en Light Mode */
+body.light-mode .badge-category {
+  background-color: #f3e8ff !important;
+  color: #6b21a8 !important;
+  border-color: #e9d5ff !important;
+}
+
+body.light-mode .badge-price {
+  background-color: #d1fae5 !important;
+  color: #065f46 !important;
+  border-color: #a7f3d0 !important;
+}
+
+/* Icon Box en tarjetas */
+body.light-mode .icon-bg-box {
+  background-color: #f1f5f9 !important;
+  border-color: #e2e8f0 !important;
+}
