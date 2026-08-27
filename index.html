@@ -1,0 +1,1723 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>🎓 Guía del Estudiante — Google Antigravity 2.0 & Desarrollo Agentico</title>
+  <meta name="description" content="Manual interactivo y guía completa para estudiantes de desarrollo agentico con Google Antigravity 2.0.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Barra de progreso superior -->
+  <div id="read-progress-bar"></div>
+
+  <!-- Barra de navegación superior -->
+  <header class="top-nav">
+    <a href="#inicio" class="nav-brand">
+      <div class="brand-icon">🪐</div>
+      <span>Antigravity 2.0 <small style="font-size:0.75rem; font-family:'JetBrains Mono'; font-weight:400; color:var(--indigo);">Estudiante</small></span>
+    </a>
+    <div class="nav-actions">
+      <button id="theme-toggle" class="icon-btn" title="Alternar Modo Claro / Oscuro" aria-label="Alternar tema">🌙</button>
+      <button id="menu-toggle" class="icon-btn menu-toggle" title="Abrir menú de navegación" aria-label="Abrir menú">☰</button>
+    </div>
+  </header>
+
+  <!-- Overlay para drawer en móviles -->
+  <div id="drawer-backdrop" class="drawer-backdrop"></div>
+
+  <div class="app-container">
+    <!-- BARRA LATERAL / SIDEBAR DE NAVEGACIÓN -->
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-header-mobile">
+        <div style="font-family:'Fraunces',serif; font-weight:700; font-size:1.1rem; color:var(--text-primary);">
+          🪐 Índice del Estudiante
+        </div>
+        <button id="sidebar-close" class="sidebar-close-btn" aria-label="Cerrar menú">✖</button>
+      </div>
+
+      <div class="sidebar-search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="search-input" class="search-input" placeholder="Buscar clases, prompts, conceptos...">
+      </div>
+
+      <div>
+        <div class="sidebar-nav-title">Navegación del Seminario</div>
+        <ul class="sidebar-nav-list">
+          <li><a href="#inicio" class="sidebar-link active"><span>🪐 Inicio</span></a></li>
+          <li><a href="#repos-oficiales" class="sidebar-link"><span>🔗 Repositorios Oficiales</span> <span class="badge-tag">GitHub</span></a></li>
+          <li><a href="#mapa-contexto" class="sidebar-link"><span>🗺️ Mapa & GEMINI.md</span> <span class="badge-tag">Contexto</span></a></li>
+          <li><a href="#tabla-clases" class="sidebar-link"><span>📺 Tabla de Clases</span> <span class="badge-tag">7 videos</span></a></li>
+          
+          <li style="margin-top:0.6rem; border-top:1px dashed var(--border-subtle); padding-top:0.6rem;"><span style="font-size:0.75rem; font-weight:700; color:var(--indigo); text-transform:uppercase; letter-spacing:0.05em; padding-left:0.5rem;">Las 7 Clases en Video</span></li>
+          <li><a href="#clase-1" class="sidebar-link"><span>🎬 C1: Intro & Era Agentica</span> <span class="badge-tag">12m</span></a></li>
+          <li><a href="#clase-2" class="sidebar-link"><span>🪄 C2: Auto-Setup Windows</span> <span class="badge-tag">Badge 1</span></a></li>
+          <li><a href="#clase-3" class="sidebar-link"><span>🛡️ C3: Cerebro Agentico (OS)</span> <span class="badge-tag">Badge 2</span></a></li>
+          <li><a href="#clase-4" class="sidebar-link"><span>💬 C4: Entrevista Web (14P)</span> <span class="badge-tag">15m</span></a></li>
+          <li><a href="#clase-5" class="sidebar-link"><span>📚 C5: Master Context (6 Docs)</span> <span class="badge-tag">Badge 3</span></a></li>
+          <li><a href="#clase-6" class="sidebar-link"><span>✂️ C6: Poda de Skills</span> <span class="badge-tag">Badge 4</span></a></li>
+          <li><a href="#clase-7" class="sidebar-link"><span>🏆 C7: Desafío Integrador</span> <span class="badge-tag">100 pts</span></a></li>
+
+          <li style="margin-top:0.6rem; border-top:1px dashed var(--border-subtle); padding-top:0.6rem;"><span style="font-size:0.75rem; font-weight:700; color:var(--indigo); text-transform:uppercase; letter-spacing:0.05em; padding-left:0.5rem;">Recursos y Evaluación</span></li>
+          <li><a href="#gentle-sdd" class="sidebar-link"><span>📐 Tutorial Gentle-AI (SDD)</span></a></li>
+          <li><a href="#plantillas-contexto" class="sidebar-link"><span>📁 Las 7 Plantillas Oficiales</span></a></li>
+          <li><a href="#demo-app" class="sidebar-link"><span>💻 App Demo CultivaRío 2026</span></a></li>
+          <li><a href="#logros" class="sidebar-link"><span>🎖️ Hoja de Logros & Badges</span> <span class="badge-tag">5 Badges</span></a></li>
+        </ul>
+      </div>
+
+      <div style="margin-top:auto; padding-top:1.5rem; border-top:1px solid var(--border-subtle);">
+        <div style="font-size:0.8rem; color:var(--text-muted); font-family:'JetBrains Mono';">
+          Antigravity 2.0 • Edición Estudiante
+        </div>
+      </div>
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="content-main">
+
+      <!-- HERO SECTION -->
+      <section id="inicio" class="doc-section">
+        <div class="hero-card">
+          <div class="hero-inner">
+            <div class="eyebrow">
+              <span>🚀</span> SEMINARIO DE DESARROLLO AGENTICO
+            </div>
+            <h1 class="hero-title">Guía del Estudiante: Google Antigravity 2.0</h1>
+            <p class="hero-lede">
+              ¡Bienvenido al Seminario! En este curso aprenderás a convertirte en un director técnico de software agentico dominando <strong>Google Antigravity 2.0</strong>, subagentes en paralelo, persistencia con <strong>Memoria Engram</strong>, desarrollo guiado por especificaciones con <strong>Gentle-AI (SDD)</strong> y el <strong>Antigravity Operating System</strong> en un flujo progresivo, coherente y ordenado.
+            </p>
+            
+            <div class="hero-meta-grid">
+              <div class="meta-pill">
+                <div class="meta-pill-icon">📺</div>
+                <div class="meta-pill-text">
+                  <span class="meta-pill-label">Formato</span>
+                  <span class="meta-pill-val">7 Clases (Máx 15 min)</span>
+                </div>
+              </div>
+              <div class="meta-pill">
+                <div class="meta-pill-icon">⚙️</div>
+                <div class="meta-pill-text">
+                  <span class="meta-pill-label">Entorno</span>
+                  <span class="meta-pill-val">Auto-Setup Transparente</span>
+                </div>
+              </div>
+              <div class="meta-pill">
+                <div class="meta-pill-icon">🏆</div>
+                <div class="meta-pill-text">
+                  <span class="meta-pill-label">Titulación Final</span>
+                  <span class="meta-pill-val">Full-Stack Agentic UI Developer</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- REPOSITORIOS OFICIALES -->
+      <section id="repos-oficiales" class="doc-section">
+        <div class="section-header">
+          <span class="section-tag">Recursos Externos</span>
+          <h2>🔗 Repositorios Oficiales del Seminario</h2>
+        </div>
+        <p>Para el seguimiento del curso, las prácticas y los prompts utilizaremos los siguientes repositorios centrales de referencia:</p>
+
+        <div class="pillars-grid">
+          <div class="pillar-card">
+            <span class="pillar-num">SDD & AGENTES</span>
+            <h3>🛡️ Gentle-AI (Gentleman Programming)</h3>
+            <p>Repositorio central con la arquitectura y metodología de desarrollo guiado por especificaciones (Spec-Driven Development / SDD).</p>
+            <p><a href="https://github.com/Gentleman-Programming/gentle-ai" target="_blank" rel="noopener noreferrer" style="color:var(--indigo); font-weight:600; text-decoration:underline;">👉 https://github.com/Gentleman-Programming/gentle-ai</a></p>
+          </div>
+
+          <div class="pillar-card">
+            <span class="pillar-num">SKILLS AGENTICAS</span>
+            <h3>🎯 Agentic Awesome Skills (sickn33)</h3>
+            <p>Catálogo maestro de habilidades para importar en la carpeta <code>.agents/skills/</code> y realizar la posterior poda inteligente.</p>
+            <p><a href="https://github.com/sickn33/agentic-awesome-skills" target="_blank" rel="noopener noreferrer" style="color:var(--indigo); font-weight:600; text-decoration:underline;">👉 https://github.com/sickn33/agentic-awesome-skills</a></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- MAPA MAESTRO & CONFIGURACIÓN DE CONTEXTO -->
+      <section id="mapa-contexto" class="doc-section">
+        <div class="section-header">
+          <span class="section-tag">Configuración de Contexto</span>
+          <h2>🪐 Mapa Maestro de Recursos & Conector GEMINI.md</h2>
+        </div>
+        <p>En el ecosistema de <strong>Google Antigravity</strong>, el contexto del proyecto y las reglas se unifican de forma directa y estructurada. Aquí tienes el mapa completo de recursos y la explicación de cómo funciona el archivo conector <code>GEMINI.md</code>:</p>
+
+        <div class="pillars-grid">
+          <div class="pillar-card">
+            <span class="pillar-num">01. REGLAS & MOTOR</span>
+            <h3>📌 Reglas Globales & Memoria</h3>
+            <ul>
+              <li>
+                <strong>Reglas Globales (always_on)</strong><br>
+                <code>.agents/rules/antigravity_global_rules.md</code><br>
+                <span style="font-size:0.8rem; color:var(--text-muted);">Los 6 pilares inmutables del agente.</span>
+              </li>
+              <li>
+                <strong>Protocolo Engram & SDD</strong><br>
+                <code>.agents/rules/gentle_engram_protocol.md</code><br>
+                <span style="font-size:0.8rem; color:var(--text-muted);">Persistencia continua con <code>mem_save</code>.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pillar-card">
+            <span class="pillar-num">02. DOCUMENTACIÓN</span>
+            <h3>📚 Ecosistema del Seminario</h3>
+            <ul>
+              <li>
+                <strong>Guía Web del Estudiante</strong><br>
+                <code>guía_estudiante_web/</code><br>
+                <span style="font-size:0.8rem; color:var(--text-muted);">Manual paso a paso, prompts y plantillas.</span>
+              </li>
+              <li>
+                <strong>Guía Web del Profesor</strong><br>
+                <code>guia_profesor_web/</code><br>
+                <span style="font-size:0.8rem; color:var(--text-muted);">Guiones minuto a minuto y rúbricas.</span>
+              </li>
+              <li>
+                <strong>Presentación Interactiva</strong><br>
+                <code>presentation/</code><br>
+                <span style="font-size:0.8rem; color:var(--text-muted);">48 diapositivas con notas y prompts completos.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pillar-card">
+            <span class="pillar-num">03. PROYECTO REAL</span>
+            <h3>💻 Demo & Desafío Final</h3>
+            <ul>
+              <li>
+                <strong>App Demo CultivaRío 2026</strong><br>
+                <code>demo_app/</code><br>
+                <span style="font-size:0.8rem; color:var(--text-muted);">Código HTML/CSS/JS + 6 docs de contexto.</span>
+              </li>
+              <li>
+                <strong>Desafío Integrador Final</strong><br>
+                <code>Proyecto Asincrónico</code><br>
+                <span style="font-size:0.8rem; color:var(--text-muted);">Trabajo práctico grupal (100 pts).</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout callout-tip" style="margin-top:1.5rem;">
+          <div class="callout-header">🧩 ¿Cómo funciona GEMINI.md en tus propios proyectos?</div>
+          <p>En cualquier proyecto que construyas con Google Antigravity, el archivo <code>GEMINI.md</code> en la raíz actúa como el <strong>conector maestro de contexto</strong>. Utiliza la directiva <code>@</code> para vincular automáticamente las reglas y los 6 documentos de Master Context (<code>@docs/contexto/...</code>) en cada sesión del agente.</p>
+        </div>
+      </section>
+
+      <!-- TABLA GENERAL DE CLASES -->
+      <section id="tabla-clases" class="doc-section">
+        <div class="section-header">
+          <span class="section-tag">Ruta de Aprendizaje</span>
+          <h2>📺 Tabla General de Clases en Video (Máx 15 Minutos)</h2>
+        </div>
+        <p>El curso está estructurado en <strong>7 clases en video de corta duración</strong> para que puedas aprender a tu propio ritmo e implementar tus proyectos paso a paso:</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Clase</th>
+                <th>Duración</th>
+                <th>Enunciado Oficial de la Clase</th>
+                <th>Objetivo Principal</th>
+                <th>Entregable / Badge</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>01</strong></td>
+                <td>12 min</td>
+                <td><strong>Introducción a Antigravity 2.0 & Era Agentica</strong></td>
+                <td>Explorar la interfaz, el selector multimodelo, el explorador de workspace y lograr el primer maquetado UI con prompt.</td>
+                <td>Práctica 1: Primer componente UI en HTML/CSS.</td>
+              </tr>
+              <tr>
+                <td><strong>02</strong></td>
+                <td>10 min</td>
+                <td><strong>Auto-Setup Transparente del Entorno en Windows</strong></td>
+                <td>Configurar Node.js, Git y PowerShell en segundo plano con <code>winget</code> sin consolas manuales.</td>
+                <td><span class="badge-tag" style="background:var(--indigo-soft); color:var(--indigo);">🎖️ Badge 1: Antigravity Pilot</span></td>
+              </tr>
+              <tr>
+                <td><strong>03</strong></td>
+                <td>14 min</td>
+                <td><strong>Cerebro Agentico: Reglas Globales, Gentle-AI & Engram</strong></td>
+                <td>Inyectar el Sistema Operativo de Reglas (<code>antigravity_global_rules.md</code> con <code>trigger: always_on</code>), DoD y persistencia Engram.</td>
+                <td><span class="badge-tag" style="background:var(--indigo-soft); color:var(--indigo);">🛡️ Badge 2: Gentle-AI Knight</span></td>
+              </tr>
+              <tr>
+                <td><strong>04</strong></td>
+                <td>15 min</td>
+                <td><strong>Levantamiento de Contexto: La Entrevista Web (14P)</strong></td>
+                <td>Guiar a Antigravity como Arquitecto Web formulando 14 preguntas pedagógicas y guardando en <code>mem_save</code>.</td>
+                <td>Práctica 4: 14 respuestas en memoria activa.</td>
+              </tr>
+              <tr>
+                <td><strong>05</strong></td>
+                <td>14 min</td>
+                <td><strong>Master Context: Autogenerar los 6 Documentos & GEMINI.md</strong></td>
+                <td>Generar los 6 archivos en <code>docs/contexto/</code> con ADRs fechados y vincularlos con <code>@</code> en <code>GEMINI.md</code>.</td>
+                <td><span class="badge-tag" style="background:var(--indigo-soft); color:var(--indigo);">📚 Badge 3: Context Architect</span></td>
+              </tr>
+              <tr>
+                <td><strong>06</strong></td>
+                <td>12 min</td>
+                <td><strong>Skills Agenticas: Importación & Poda Inteligente</strong></td>
+                <td>Descargar <code>.agents/skills/</code> desde Agentic Awesome Skills y realizar poda holística basada en contexto.</td>
+                <td><span class="badge-tag" style="background:var(--indigo-soft); color:var(--indigo);">✂️ Badge 4: Skill Hunter</span></td>
+              </tr>
+              <tr>
+                <td><strong>07</strong></td>
+                <td>15 min</td>
+                <td><strong>Desafío Integrador en Equipos (Proyecto en Equipo) & Titulación</strong></td>
+                <td>Desarrollar el proyecto asincrónico para el hogar con los 5 requisitos clave, demo de CultivaRío y titulación.</td>
+                <td><span class="badge-tag" style="background:var(--amber-soft); color:var(--amber);">🏆 Full-Stack Agentic UI Developer</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           CLASE 1: INTRODUCCIÓN A ANTIGRAVITY 2.0
+           ========================================== -->
+      <section id="clase-1" class="doc-section">
+        <div class="section-header">
+          <span class="section-tag">Clase 01 • Diapositivas 1 a 6</span>
+          <h2>🎬 CLASE 01: Introducción a Google Antigravity 2.0 y la Era Agentica</h2>
+        </div>
+
+        <div class="callout callout-important">
+          <div class="callout-header">📋 Enunciado Oficial de la Clase 1</div>
+          <p><strong>Conociendo la plataforma independiente, la interfaz de agentes, el selector multimodelo y el explorador del espacio de trabajo.</strong><br>
+          <em>Duración: 12 minutos | Formato: Práctica inicial guiada | Entregable: Primer componente UI maquetado con IA.</em></p>
+        </div>
+
+        <h3>💡 1. El Cambio de Paradigma: De Programar a Dirigir Agentes (Módulo 0)</h3>
+        <p>En el desarrollo de software tradicional, los programadores pasan horas memorizando etiquetas HTML, buscando errores tipográficos de CSS y cerrando etiquetas a mano. En la <strong>era agentica con Antigravity 2.0</strong>, el estudiante asume el rol de <strong>Director Técnico y Arquitecto de Software</strong>:</p>
+
+        <div class="grid-2col" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1.2rem; margin:1.5rem 0;">
+          <div class="info-box border-red" style="padding:1.2rem; border-radius:12px; background:var(--bg-surface-raised); border-left:4px solid var(--rose);">
+            <h4 style="color:var(--rose); margin-top:0;">❌ Desarrollo Tradicional</h4>
+            <ul style="margin-left:1.2rem; font-size:0.9rem; color:var(--text-secondary);">
+              <li>Escribir HTML y CSS línea a línea de memoria.</li>
+              <li>Buscar cierres de etiquetas y errores de sintaxis en Google.</li>
+              <li>Alta fricción, lentitud y frustración en el prototipado inicial.</li>
+            </ul>
+          </div>
+          <div class="info-box border-green" style="padding:1.2rem; border-radius:12px; background:var(--bg-surface-raised); border-left:4px solid var(--emerald);">
+            <h4 style="color:var(--emerald); margin-top:0;">⚡ Desarrollo Agentico en Antigravity 2.0</h4>
+            <ul style="margin-left:1.2rem; font-size:0.9rem; color:var(--text-secondary);">
+              <li>Expresar intenciones, colores y reglas de diseño en lenguaje natural.</li>
+              <li>Antigravity planifica y genera HTML5 y CSS profesional y responsive.</li>
+              <li>El alumno actúa como Arquitecto supervisando la calidad visual y técnica.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>🧭 2. Tour por las 4 Zonas de la Interfaz de Google Antigravity 2.0</h3>
+        <div class="pillars-grid">
+          <div class="pillar-card">
+            <span class="pillar-num">ZONA 1</span>
+            <h3>Sidebar `Projects`</h3>
+            <p>Navegación rápida entre proyectos, historial de conversaciones anteriores (<code>Conversation History</code>) y tareas programadas (<code>Scheduled Tasks</code>).</p>
+          </div>
+          <div class="pillar-card">
+            <span class="pillar-num">ZONA 2</span>
+            <h3>Selector Multimodelo</h3>
+            <p>Panel inferior que permite alternar entre <strong>Gemini 3.6 Flash High</strong> (ultra rápido para maquetado frontend), Gemini Pro, Claude 3.7 y GPT-4o.</p>
+          </div>
+          <div class="pillar-card">
+            <span class="pillar-num">ZONA 3</span>
+            <h3>Chat Principal de Agentes</h3>
+            <p>Espacio interactivo donde instruyes a Antigravity, observas la delegación a subagentes y monitoreas la ejecución de herramientas en segundo plano.</p>
+          </div>
+          <div class="pillar-card">
+            <span class="pillar-num">ZONA 4</span>
+            <h3>Explorador del Workspace</h3>
+            <p>Permite inspeccionar y navegar en tiempo real todos los archivos creados y modificados por el agente (<code>index.html</code>, <code>styles.css</code>, etc.).</p>
+          </div>
+        </div>
+
+        <h3>✨ 3. El "WOW Effect": Maquetado en Vivo en 2 Minutos</h3>
+        <p>Prueba la velocidad de Antigravity 2.0 enviando este prompt para crear tu primer componente interactivo sin escribir una sola línea de código a mano:</p>
+
+        <div class="code-box">
+          <div class="code-box-header">
+            <div class="code-box-meta">
+              <span class="code-type-badge">PROMPT CLASE 1</span>
+              <span class="code-hint">WOW Effect — Maquetado en Vivo</span>
+            </div>
+            <button class="copy-btn"><span>📋</span> <span>Copiar Prompt</span></button>
+          </div>
+          <pre class="code-pre"><code>Antigravity, genera un componente de tarjeta de presentación moderna en HTML5 semántico y CSS puro con diseño en tema oscuro, gradiente violeta y un botón hover.</code></pre>
+        </div>
+
+        <div class="script-practice" style="margin-top:1.5rem; background:var(--bg-surface-raised); padding:1.2rem; border-radius:12px; border:1px solid var(--border-medium);">
+          <h4 style="margin-top:0; color:var(--indigo);">🧪 Ejercicio Práctico Paso a Paso para Alumnos (Clase 1):</h4>
+          <ol style="margin-left:1.2rem; margin-top:0.5rem; color:var(--text-secondary); font-size:0.92rem; line-height:1.7;">
+            <li><strong>Paso 1:</strong> Abre Google Antigravity 2.0 y selecciona tu proyecto <code>seminario_antigravity</code> en la barra lateral.</li>
+            <li><strong>Paso 2:</strong> Selecciona el modelo <strong>Gemini 3.6 Flash High</strong> en el selector multimodelo del panel inferior.</li>
+            <li><strong>Paso 3:</strong> Envía el prompt de maquetado en vivo en el chat para que el agente cree la tarjeta.</li>
+            <li><strong>Paso 4:</strong> Abre el archivo <code>index.html</code> generado en el explorador del workspace y visualízalo en tu navegador web.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           CLASE 2: AUTO-SETUP EN WINDOWS
+           ========================================== -->
+      <section id="clase-2" class="doc-section">
+        <div class="section-header">
+          <span class="section-tag">Clase 02 • Diapositivas 7 a 12</span>
+          <h2>🪄 CLASE 02: Auto-Setup Transparente del Entorno en Windows</h2>
+        </div>
+
+        <div class="callout callout-important">
+          <div class="callout-header">📋 Enunciado Oficial de la Clase 2</div>
+          <p><strong>Instalación automática de Node.js, Git y configuración de PowerShell con 1 prompt transparente utilizando `winget`.</strong><br>
+          <em>Duración: 10 minutos | Formato: Configuración automática sin consolas manuales | Insignia: 🎖️ Badge 1: Antigravity Pilot.</em></p>
+        </div>
+
+        <h3>🛠️ 1. Fricción Tradicional vs Auto-Setup Agentico con `winget`</h3>
+        <p>En lugar de perder tiempo descargando instaladores <code>.exe</code>, configurando variables de entorno PATH a mano o destrabando políticas de PowerShell en consolas negras, Antigravity ejecuta el diagnóstico y la instalación en segundo plano mediante la herramienta <code>winget</code>:</p>
+
+        <div class="grid-2col" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1.2rem; margin:1.5rem 0;">
+          <div class="info-box border-red" style="padding:1.2rem; border-radius:12px; background:var(--bg-surface-raised); border-left:4px solid var(--rose);">
+            <h4 style="color:var(--rose); margin-top:0;">❌ Instalación Manual Clásica</h4>
+            <p style="font-size:0.9rem; color:var(--text-secondary);">Descargar ejecutables, lidiar con permisos de administrador, resolver conflictos de PATH y perder la primera clase de programación resolviendo errores de entorno.</p>
+          </div>
+          <div class="info-box border-green" style="padding:1.2rem; border-radius:12px; background:var(--bg-surface-raised); border-left:4px solid var(--emerald);">
+            <h4 style="color:var(--emerald); margin-top:0;">⚡ Auto-Setup Transparente (`winget`)</h4>
+            <p style="font-size:0.9rem; color:var(--text-secondary);">1 prompt directo donde Antigravity ejecuta diagnósticos nativos, instala dependencias faltantes en el ámbito de usuario y ajusta <code>ExecutionPolicy</code> de forma transparente.</p>
+          </div>
+        </div>
+
+        <h3>🤖 2. Prompt Mágico de Auto-Setup (Prompt 1)</h3>
+        <p>Copia y pega este prompt en el chat de Antigravity 2.0:</p>
+
+        <div class="code-box">
+          <div class="code-box-header">
+            <div class="code-box-meta">
+              <span class="code-type-badge">PROMPT 1</span>
+              <span class="code-hint">Auto-Setup Windows (Clase 2)</span>
+            </div>
+            <button class="copy-btn"><span>📋</span> <span>Copiar Prompt</span></button>
+          </div>
+          <pre class="code-pre"><code>Antigravity, por favor configura mi ambiente de desarrollo en Windows de forma transparente:
+
+1. Revisa si Node.js y Git están instalados. Si faltan, usa winget para instalarlos.
+2. Verifica que npm y git funcionen correctamente en la terminal.
+3. Habilita la ejecución de scripts en PowerShell si está bloqueada.
+4. Muéstrame un resumen transparente de todo lo que verificaste e instalaste.</code></pre>
+        </div>
+
+        <h3>📋 3. Salida Transparente de Diagnóstico</h3>
+        <p>Antigravity analizará el sistema y te devolverá un informe estructurado como este:</p>
+
+        <div class="code-box">
+          <div class="code-box-header">
+            <div class="code-box-meta">
+              <span class="code-type-badge">SALIDA ESPERADA</span>
+              <span class="code-hint">Diagnóstico de Entorno</span>
+            </div>
+          </div>
+          <pre class="code-pre"><code>[✓] Node.js v20.11.0 verificado en sistema.
+[✓] Git v2.43.0 verificado.
+[✓] ExecutionPolicy de PowerShell configurada en RemoteSigned.
+[✓] Ambiente 100% operativo para maquetado de software.</code></pre>
+        </div>
+
+        <div class="script-practice" style="margin-top:1.5rem; background:var(--bg-surface-raised); padding:1.2rem; border-radius:12px; border:1px solid var(--border-medium);">
+          <h4 style="margin-top:0; color:var(--indigo);">🧪 Ejercicio Práctico & Desbloqueo de Insignia 1:</h4>
+          <ol style="margin-left:1.2rem; margin-top:0.5rem; color:var(--text-secondary); font-size:0.92rem; line-height:1.7;">
+            <li>Copia el <strong>Prompt 1</strong> y envíalo en el chat de Antigravity.</li>
+            <li>Revisa la tabla de diagnóstico devuelta para comprobar que Node.js, Git y PowerShell estén listos.</li>
+            <li>Ve a la sección <a href="#logros" style="color:var(--indigo); font-weight:600; text-decoration:underline;">Hoja de Logros</a> y marca 🎖️ <strong>Badge 1: Antigravity Pilot</strong>.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           CLASE 3: EL CEREBRO DEL AGENTE (REGLAS OS)
+           ========================================== -->
+      <section id="clase-3" class="doc-section">
+        <div class="section-header">
+          <span class="section-tag">Clase 03 • Diapositivas 13 a 18</span>
+          <h2>🛡️ CLASE 03: El Cerebro del Agente: Global Rules & Operating System</h2>
+        </div>
+
+        <div class="callout callout-important">
+          <div class="callout-header">📋 Enunciado Oficial de la Clase 3</div>
+          <p><strong>La Constitución del Agente: Reglas Globales (`trigger: always_on`), Definition of Done (DoD), Spec-Driven Development y Memoria Engram.</strong><br>
+          <em>Duración: 14 minutos | Formato: Inyección de principios permanentes | Insignia: 🛡️ Badge 2: Gentle-AI Knight.</em></p>
+        </div>
+
+        <h3>🏛️ 1. La Trilogía Operativa del Agente Antigravity</h3>
+        <div class="pillars-grid">
+          <div class="pillar-card">
+            <span class="pillar-num">01. REGLAS</span>
+            <h3>🪐 Reglas Globales</h3>
+            <p>Archivo <code>.agents/rules/antigravity_global_rules.md</code> con <code>trigger: always_on</code>. Define el rol Senior Engineer, el principio <em>Why before How</em> y guards de producto.</p>
+          </div>
+          <div class="pillar-card">
+            <span class="pillar-num">02. METODOLOGÍA</span>
+            <h3>📐 SDD Adaptativo</h3>
+            <p>Basado en <a href="https://github.com/Gentleman-Programming/gentle-ai" target="_blank" rel="noopener noreferrer">Gentle-AI</a>. Vía rápida (Fast-Path) para 1 archivo y ciclo estructurado (Explore ➔ Tasks ➔ Apply ➔ Verify) para &gt;2 archivos.</p>
+          </div>
+          <div class="pillar-card">
+            <span class="pillar-num">03. PERSISTENCIA</span>
+            <h3>🧠 Memoria Engram</h3>
+            <p>Memoria que no se borra al reiniciar la sesión: <code>mem_save</code> para guardar decisiones y gotchas, <code>mem_context</code> para recuperar contexto y <code>mem_session_summary</code> al cerrar.</p>
+          </div>
+        </div>
+
+        <h3>🏛️ 2. Los 6 Pilares del Antigravity Operating System</h3>
+        <div class="pillars-grid">
+          <div class="pillar-card">
+            <span class="pillar-num">PILAR 1</span>
+            <h3>Persona & Mentalidad</h3>
+            <p>Senior Product Engineer: velocidad, código limpio, UX sobresaliente y explicar el <strong>POR QUÉ antes del CÓMO</strong>.</p>
+          </div>
+          <div class="pillar-card">
+            <span class="pillar-num">PILAR 2</span>
+            <h3>Tech Stack & Defaults</h3>
+            <p>HTML5 Semántico + TailwindCSS v3 (vía CDN o compilado), JavaScript modular limpio o TypeScript, patrón Repository y LocalStorage.</p>
+          </div>
+          <div class="pillar-card">
+            <span class="pillar-num">PILAR 3</span>
+            <h3>Definition of Done (DoD)</h3>
+            <p>Justificación técnica, validación de errores en consola, cero código muerto y validación visual estricta de <strong>4 Estados UI</strong>.</p>
+          </div>
+          <div class="pillar-card">
+            <span class="pillar-num">PILAR 4</span>
+            <h3>Guards de Negocio</h3>
+            <p>Explicar claramente el impacto y <strong>pedir confirmación previa</strong> antes de alterar reglas de negocio, esquemas o eventos analíticos.</p>
+          </div>
+          <div class="pillar-card">
+            <span class="pillar-num">PILAR 5</span>
+            <h3>Contexto Vivo del Proyecto</h3>
+            <p>Mantenimiento activo y consulta proactiva de los 6 documentos sagrados en <code>docs/contexto/</code>.</p>
+          </div>
+          <div class="pillar-card">
+            <span class="pillar-num">PILAR 6</span>
+            <h3>SDD Adaptativo & Engram</h3>
+            <p>Fast-Path vs Full SDD con <a href="https://github.com/Gentleman-Programming/gentle-ai" target="_blank" rel="noopener noreferrer">Gentle-AI</a> y persistencia continua de memoria en Engram.</p>
+          </div>
+        </div>
+
+        <h3>✅ 3. Definition of Done (DoD) & Validación Visual de 4 Estados</h3>
+        <p>Antes de dar por finalizada cualquier tarea, Antigravity valida el código y comprueba los 4 estados visuales de la interfaz:</p>
+
+        <div class="grid-4col" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1rem; margin:1.5rem 0;">
+          <div class="info-box border-blue" style="padding:1rem; border-radius:10px; text-align:center; background:var(--bg-surface-raised); border-top:3px solid var(--indigo);">
+            <div style="font-size:1.8rem;">⏳</div>
+            <h4 style="margin:0.4rem 0;">1. Loading</h4>
+            <p style="font-size:0.85rem; color:var(--text-secondary); margin:0;">Spinners, skeletons o estados de carga suaves.</p>
+          </div>
+          <div class="info-box border-yellow" style="padding:1rem; border-radius:10px; text-align:center; background:var(--bg-surface-raised); border-top:3px solid var(--amber);">
+            <div style="font-size:1.8rem;">📭</div>
+            <h4 style="margin:0.4rem 0;">2. Empty</h4>
+            <p style="font-size:0.85rem; color:var(--text-secondary); margin:0;">Mensaje amigable e ilustrativo cuando no hay datos.</p>
+          </div>
+          <div class="info-box border-red" style="padding:1rem; border-radius:10px; text-align:center; background:var(--bg-surface-raised); border-top:3px solid var(--rose);">
+            <div style="font-size:1.8rem;">⚠️</div>
+            <h4 style="margin:0.4rem 0;">3. Error</h4>
+            <p style="font-size:0.85rem; color:var(--text-secondary); margin:0;">Feedback claro del problema y botón para reintentar.</p>
+          </div>
+          <div class="info-box border-green" style="padding:1rem; border-radius:10px; text-align:center; background:var(--bg-surface-raised); border-top:3px solid var(--emerald);">
+            <div style="font-size:1.8rem;">✨</div>
+            <h4 style="margin:0.4rem 0;">4. Success</h4>
+            <p style="font-size:0.85rem; color:var(--text-secondary); margin:0;">Toast o confirmación visual verde de éxito.</p>
+          </div>
+        </div>
+
+        <h3>🚨 4. Prompt Maestro: Inyección de Reglas Globales (Prompt 2)</h3>
+        <p>Pega este prompt en Antigravity para instalar la constitución de reglas, guardarla en memoria activa y vincularla en <code>GEMINI.md</code>:</p>
+
+        <div class="code-box">
+          <div class="code-box-header">
+            <div class="code-box-meta">
+              <span class="code-type-badge">PROMPT 2</span>
+              <span class="code-hint">Operating System Rules (Clase 3)</span>
+            </div>
+            <button class="copy-btn"><span>📋</span> <span>Copiar Prompt</span></button>
+          </div>
+          <pre class="code-pre"><code>[REGLA GLOBAL PERMANENTE - ANTIGRAVITY OPERATING SYSTEM]
+
+Antigravity, por favor configura e instala de forma permanente y global el Sistema Operativo de Reglas en este proyecto:
+
+1. CREACIÓN AUTOMÁTICA DEL ARCHIVO DE REGLAS:
+   - Crea la carpeta .agents/rules/ si no existe.
+   - Crea el archivo .agents/rules/antigravity_global_rules.md con encabezado 'trigger: always_on' y los 6 pilares maestros:
+     * 1. Persona: Senior Product Engineer (velocidad, código limpio, UX sobresaliente, explicar el POR QUÉ antes del CÓMO).
+     * 2. Tech Stack Defaults: React 18+ / TS / Vite / TailwindCSS / Zustand / Query / Patrón Repository.
+     * 3. Definition of Done (DoD): Justificación técnica, validación de tipos/tests, verificación visual de 4 estados UI (Loading, Empty, Error, Success) y código limpio.
+     * 4. Control de Guardas: Explicar impacto y pedir confirmación antes de alterar reglas de negocio o eventos.
+     * 5. Contexto Vivo: Gestión proactiva de docs/contexto/ (arquitectura, convenciones, decisiones, glosario, flujo, errores).
+     * 6. SDD Adaptativo & Engram: Vía rápida (Fast-Path) para 1 archivo, ciclo SDD para >2 archivos basado en https://github.com/Gentleman-Programming/gentle-ai, y memoria continua (mem_context, mem_save, mem_session_summary).
+
+2. ACTIVACIÓN Y PERSISTENCIA GLOBAL:
+   - Guarda esta directiva en tu memoria activa (mem_save) para que nunca se olvide.
+   - Vincula la regla en GEMINI.md (@.agents/rules/antigravity_global_rules.md).
+
+3. CONFIRMACIÓN:
+   - Muéstrame un resumen confirmando que las reglas quedaron activadas de forma global y permanente (always_on).</code></pre>
+        </div>
+
+        <div class="script-practice" style="margin-top:1.5rem; background:var(--bg-surface-raised); padding:1.2rem; border-radius:12px; border:1px solid var(--border-medium);">
+          <h4 style="margin-top:0; color:var(--indigo);">🧪 Ejercicio Práctico & Desbloqueo de Insignia 2:</h4>
+          <ol style="margin-left:1.2rem; margin-top:0.5rem; color:var(--text-secondary); font-size:0.92rem; line-height:1.7;">
+            <li>Envía el <strong>Prompt 2</strong> en Antigravity 2.0.</li>
+            <li>Verifica la creación del archivo <code>.agents/rules/antigravity_global_rules.md</code> con <code>trigger: always_on</code>.</li>
+            <li>Comprueba que Antigravity confirme el guardado en <code>mem_save</code> y su referencia en <code>GEMINI.md</code>.</li>
+            <li>Desbloquea 🛡️ <strong>Badge 2: Gentle-AI Knight</strong> en tu Hoja de Logros.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           CLASE 4: ENTREVISTA WEB (14 PREGUNTAS)
+           ========================================== -->
+      <section id="clase-4" class="doc-section">
+        <div class="section-header">
+          <span class="section-tag">Clase 04 • Diapositivas 19 a 24</span>
+          <h2>💬 CLASE 04: Levantamiento de Contexto: La Entrevista Web (14 Preguntas)</h2>
+        </div>
+
+        <div class="callout callout-important">
+          <div class="callout-header">📋 Enunciado Oficial de la Clase 4</div>
+          <p><strong>Transformando a Antigravity 2.0 en un Arquitecto Web que formula 14 preguntas pedagógicas diseñadas para alimentar los 6 documentos de contexto.</strong><br>
+          <em>Duración: 15 minutos | Formato: Entrevista guiada socrática | Entregable: 14 respuestas consolidadas en `mem_save`.</em></p>
+        </div>
+
+        <h3>💡 1. Entrevista Guiada vs Prompts Vagos</h3>
+        <p>Un prompt pobre como <em>"hazme una web de un festival"</em> genera alucinaciones, colores arbitrarios y código difícil de mantener. En cambio, la <strong>Entrevista Web de 14 Preguntas</strong> estructura la idea en 5 bloques pedagógicos que alimentan directamente los 6 documentos de <code>docs/contexto/</code>:</p>
+
+        <div class="pillars-grid">
+          <div class="pillar-card">
+            <span class="pillar-num">BLOQUE 1</span>
+            <h3>🎯 Identidad & Glosario</h3>
+            <p><strong>P1.</strong> Nombre y Propósito.<br><strong>P2.</strong> Palabras clave del dominio.<br><em style="color:var(--indigo);">➔ Alimenta arquitectura.md y glosario.md</em></p>
+          </div>
+          <div class="pillar-card">
+            <span class="pillar-num">BLOQUE 2</span>
+            <h3>🧩 Estructura & Contenido</h3>
+            <p><strong>P3.</strong> Secciones de la página.<br><strong>P4.</strong> Tarjetas y datos muestra.<br><strong>P5.</strong> Formulario y botones.<br><em style="color:var(--indigo);">➔ Alimenta arquitectura.md y convenciones.md</em></p>
+          </div>
+          <div class="pillar-card">
+            <span class="pillar-num">BLOQUE 3</span>
+            <h3>🎨 Estilo Visual & Responsive</h3>
+            <p><strong>P6.</strong> Paleta y Dark/Light mode.<br><strong>P7.</strong> Tipografía Google Fonts.<br><strong>P8.</strong> Adaptabilidad a móviles.<br><strong>P9.</strong> Efectos hover.<br><em style="color:var(--indigo);">➔ Alimenta convenciones.md</em></p>
+          </div>
+          <div class="pillar-card">
+            <span class="pillar-num">BLOQUE 4</span>
+            <h3>🛠️ Decisiones & Límites</h3>
+            <p><strong>P10.</strong> Framework CSS (Tailwind/Bootstrap/CSS).<br><strong>P11.</strong> Interactividad visual (modales).<br><strong>P12.</strong> Tecnologías Prohibidas (sin React/backend).<br><em style="color:var(--indigo);">➔ Alimenta decisiones.md y arquitectura.md</em></p>
+          </div>
+          <div class="pillar-card">
+            <span class="pillar-num">BLOQUE 5</span>
+            <h3>📋 Flujo & Gotchas</h3>
+            <p><strong>P13.</strong> Pasos de trabajo y checklist DoD.<br><strong>P14.</strong> Errores comunes a prevenir (scroll roto, alt en fotos).<br><em style="color:var(--indigo);">➔ Alimenta flujo-de-trabajo.md y errores-conocidos.md</em></p>
+          </div>
+        </div>
+
+        <h3>🤖 2. Prompt Entrevistador de 14 Preguntas Pedagógicas (Prompt 3 Completo)</h3>
+        <p>Pega este prompt completo en Antigravity para iniciar la entrevista socrática con explicaciones y ejemplos:</p>
+
+        <div class="code-box">
+          <div class="code-box-header">
+            <div class="code-box-meta">
+              <span class="code-type-badge">PROMPT 3 (COMPLETO)</span>
+              <span class="code-hint">Entrevista de Contexto (14 Preguntas)</span>
+            </div>
+            <button class="copy-btn"><span>📋</span> <span>Copiar Prompt Completo</span></button>
+          </div>
+          <pre class="code-pre"><code>Antigravity, quiero definir la idea y el contexto inicial de mi sitio web para este proyecto.
+
+Por favor actúa como un Arquitecto Web y tutor técnico paciente. Inicia una entrevista guiada haciéndome las siguientes 14 PREGUNTAS PEDAGÓGICAS Y CLARAS sobre mi proyecto (pensadas para estudiantes principiantes en desarrollo web).
+
+En cada pregunta, incluye su breve explicación (¿Para qué sirve?) y los ejemplos de respuesta para que sepa exactamente qué responder:
+
+--- 🎯 BLOQUE 1: IDENTIDAD, TEMÁTICA Y GLOSARIO (Alimenta arquitectura.md y glosario.md) ---
+
+1. 🎯 NOMBRE Y PROPÓSITO DEL SITIO WEB:
+   - 💡 ¿Para qué sirve?: Define la identidad de tu página para que el agente sepa de qué trata y cree títulos, textos y elementos coherentes con tu temática.
+   - 📌 Ejemplos de lo que puedes responder:
+     * Opción A (Eventos): "Se llamará 'Festival Cultural Río Cuarto 2026' y servirá para mostrar recitales, talleres de arte y reservar entradas."
+     * Opción B (Comercio/Gastronomía): "Se llamará 'Café & Libros Vintage' y servirá para mostrar el menú, novedades literarias y reservar mesas."
+     * Opción C (Servicios/Mascotas): "Se llamará 'Huellitas Felices' y su meta es publicar perros y gatos en adopción y recibir donaciones."
+
+2. 📖 PALABRAS CLAVE DEL PROYECTO (GLOSARIO):
+   - 💡 ¿Para qué sirve?: Cada temática tiene palabras especiales. Si se las enseñamos a la IA, las usará correctamente en los botones, títulos y tarjetas sin inventar términos raros.
+   - 📌 Ejemplos de lo que puedes responder:
+     * Si es un festival: "Lineup (grilla de artistas), Pase General (entrada básica), Escenario Principal, Feria Gastronómica."
+     * Si es un café/tienda: "Especialidad del día, Combo Desayuno, Carrito, Pedido para llevar."
+     * Si es de mascotas: "Mascota rescatada, Ficha de adopción, Vacunación al día, Hogar de tránsito."
+
+--- 🧩 BLOQUE 2: ESTRUCTURA, SECCIONES Y CONTENIDO (Alimenta arquitectura.md, convenciones.md y glosario.md) ---
+
+3. 🧱 SECCIONES PRINCIPALES DE LA PÁGINA (DE ARRIBA HACIA ABAJO):
+   - 💡 ¿Para qué sirve?: Es el esqueleto de tu página (Wireframe). Le dice a la IA en qué orden colocar los bloques para que la navegación sea lógica y cómoda.
+   - 📌 Ejemplos de lo que puedes responder:
+     * Opción A: "1. Barra de navegación arriba con logo y enlaces, 2. Portada (Hero) con título llamativo y botón principal, 3. Grilla de tarjetas con eventos/productos, 4. Formulario de inscripción/contacto, 5. Pie de página (Footer) con redes sociales."
+     * Opción B: "1. Menú superior, 2. Banner de bienvenida con foto, 3. Sección de '¿Quiénes somos?', 4. Catálogo con buscador, 5. Testimonios, 6. Formulario, 7. Pie de página."
+
+4. 🖼️ CONTENIDO DE LAS TARJETAS Y DATOS DE MUESTRA:
+   - 💡 ¿Para qué sirve?: Las tarjetas (cards) muestran información repetitiva pero con datos diferentes. Debemos definir qué datos llevará cada tarjeta y darle ejemplos para que no queden vacías.
+   - 📌 Ejemplos de lo que puedes responder:
+     * Estructura de cada tarjeta: "Cada tarjeta debe tener: Foto ilustrativa, Título del evento/producto, Fecha o Precio, Ubicación o Categoría, una breve descripción de 2 líneas y un botón de acción ('Ver más' o 'Reservar')."
+     * Datos de muestra (4 a 6 ejemplos): "Quiero 6 tarjetas con recitales locales (ej: 'Noche de Rock', 'Tributo Jazz', 'Taller de Cerámica', 'Show de Títeres', 'Feria de Diseño', 'Folclore en Vivo')."
+
+5. 📝 FORMULARIO INTERACTIVO Y BOTONES DE ACCIÓN:
+   - 💡 ¿Para qué sirve?: Permite que los visitantes interactúen contigo (reserven, pregunten o se anoten). Le indicamos a la IA qué campos pedir y qué mensaje mostrar.
+   - 📌 Ejemplos de lo que puedes responder:
+     * Opción A (Inscripción/Reserva): "El formulario debe pedir: Nombre completo, Correo electrónico, Teléfono, Selección de entrada o taller en un menú desplegable, y un botón 'Confirmar Reserva' que muestre un aviso verde de éxito."
+     * Opción B (Contacto simple): "Debe pedir: Nombre, Email, Asunto, Mensaje y botón 'Enviar Consulta'."
+
+--- 🎨 BLOQUE 3: ESTILO VISUAL, COLORES Y DISEÑO RESPONSIVE (Alimenta convenciones.md y decisiones.md) ---
+
+6. 🌈 PALETA DE COLORES Y MODO (CLARO U OSCURO):
+   - 💡 ¿Para qué sirve?: Los colores transmiten la personalidad de tu sitio. Además, definir si será claro u oscuro (Dark mode) ayuda a elegir fondos y contrastes para que todo el texto sea legible.
+   - 📌 Ejemplos de lo que puedes responder:
+     * Opción A (Dark Mode / Nocturno): "Prefiero Modo Oscuro: Fondo azul noche pizarra (`#0f172a`), color primario violeta neón (`#8b5cf6`), acentos en rosa/fucsia (`#ec4899`) y textos en blanco."
+     * Opción B (Light Mode / Limpio y Claro): "Prefiero Modo Claro: Fondo blanco/gris muy suave (`#f8fafc`), color principal verde esmeralda (`#10b981`), detalles en azul marino (`#1e3a8a`) y texto gris oscuro."
+     * Opción C (Con botón para alternar): "Quiero que inicie en Modo Oscuro, pero que tenga un botón arriba para cambiar a Modo Claro."
+
+7. 🔤 TIPOGRAFÍA Y FUENTES:
+   - 💡 ¿Para qué sirve?: Una tipografía adecuada de Google Fonts hace que tu página se vea moderna y profesional sin ralentizar la carga.
+   - 📌 Ejemplos de lo que puedes responder:
+     * Opción A (Moderna y Geométrica): "Usar la fuente 'Poppins' o 'Inter' de Google Fonts: títulos en negrita (bold) y párrafos limpios con buen espacio entre líneas."
+     * Opción B (Clásica y Elegante): "Usar 'Playfair Display' para los títulos grandes y 'Roboto' para los textos explicativos."
+     * Opción C (Estándar del sistema): "Usar fuente sans-serif del sistema (Segoe UI / Arial / system-ui)."
+
+8. 📱 ADAPTABILIDAD A CELULARES (DISEÑO RESPONSIVE):
+   - 💡 ¿Para qué sirve?: Más del 70% de las personas navega desde el teléfono. Debemos indicarle cómo reorganizar los elementos para que no se corten en pantallas pequeñas.
+   - 📌 Ejemplos de lo que puedes responder:
+     * "En computadoras las tarjetas van en 3 columnas, pero en celulares deben verse en 1 sola columna vertical. El menú superior de enlaces debe convertirse en un botón de menú hamburguesa desplegable, y los botones deben ser anchos para tocarlos fácil con el dedo."
+
+9. ✨ EFECTOS AL PASAR EL MOUSE (HOVER):
+   - 💡 ¿Para qué sirve?: Las micro-interacciones dan dinamismo a la web y le avisan al usuario que un elemento es interactivo y se puede cliquear.
+   - 📌 Ejemplos de lo que puedes responder:
+     * "Al pasar el cursor sobre un botón, que cambie suavemente de brillo o color. Al pasar el mouse sobre una tarjeta, que se eleve levemente hacia arriba con una sombra suave y que la imagen haga un pequeño zoom fluido."
+
+--- 🛠️ BLOQUE 4: DECISIONES TÉCNICAS Y LÍMITES (Alimenta decisiones.md, arquitectura.md y convenciones.md) ---
+
+10. 🛠️ FRAMEWORK CSS ELEGIDO Y MOTIVOS:
+    - 💡 ¿Para qué sirve?: Le aclara a Antigravity con qué herramienta de diseño trabajaremos en clase para que aplique únicamente las clases de ese framework y no mezcle código.
+    - 📌 Ejemplos de lo que puedes responder:
+      * Opción A (Recomendado - TailwindCSS): "Usaremos TailwindCSS v3 (via CDN) porque nos permite maquetar rápido con clases de utilidad y lograr un diseño moderno sin escribir hojas de estilo gigantes."
+      * Opción B (Bootstrap 5): "Usaremos Bootstrap 5 (via CDN) porque nos gustan sus componentes ya armados como modales y botones prehechos."
+      * Opción C (CSS Vanilla Puro): "Usaremos CSS3 tradicional con archivo `styles.css` propio para practicar variables CSS (`:root`) y Flexbox/Grid a mano."
+
+11. 💡 INTERACTIVIDAD VISUAL Y DINÁMICA DE PANTALLA:
+    - 💡 ¿Para qué sirve?: Define qué comportamiento dinámico tendrá la página ante los clics del usuario (abrir ventanas de información, mostrar avisos o cambiar de sección) de forma directa y visual.
+    - 📌 Ejemplos de lo que puedes responder:
+      * Opción A: "Quiero que al hacer clic en 'Ver detalles' de una tarjeta se abra una ventana modal con más información y un botón de cerrar. Al enviar el formulario, que aparezca un aviso verde de confirmación en pantalla, y un botón para alternar entre Modo Claro y Modo Oscuro."
+      * Opción B: "Quiero botones en el menú para cambiar de sección en la misma pantalla (Inicio, Catálogo y Contacto) y un menú hamburguesa que se despliegue en celulares."
+
+12. ⛔ LÍMITES TÉCNICOS Y TECNOLOGÍAS PROHIBIDAS (LO QUE NO EXISTE):
+    - 💡 ¿Para qué sirve?: Le pone un freno a la IA para que no agregue frameworks complejos ni librerías pesadas que no se hayan visto en el curso, manteniendo el código simple y fácil de entender.
+    - 📌 Ejemplos de lo que puedes responder:
+      * "NO usar React, Angular ni Vue. NO crear backend con Node.js, Express ni Python. NO usar bases de datos SQL ni Firebase. NO usar estilos pegados dentro de las etiquetas con `style='...'`. Mantener todo en un solo archivo `index.html` con JavaScript limpio."
+
+--- 📋 BLOQUE 5: FLUJO DE TRABAJO Y CONTROL DE CALIDAD (Alimenta flujo-de-trabajo.md y errores-conocidos.md) ---
+
+13. 📋 PASOS DE TRABAJO Y CHECKLIST DE VERIFICACIÓN:
+    - 💡 ¿Para qué sirve?: Establece el orden de trabajo paso a paso y la lista de control (Definition of Done) para comprobar que la página funciona perfecto antes de darla por terminada.
+    - 📌 Ejemplos de lo que puedes responder:
+      * Orden de construcción: "Paso 1: Estructura HTML5 semántica ➔ Paso 2: Diseño y colores con el Framework CSS ➔ Paso 3: Interactividad y filtros en JS."
+      * Checklist de prueba: "Antes de terminar, verificar: 1. Abrir en navegador, 2. Probar en tamaño móvil con F12 / Responsive Mode, 3. Comprobar que los botones y filtros respondan, 4. Verificar que no haya errores rojos en la consola de JavaScript."
+
+14. ⚠️ ERRORES COMUNES A PREVENIR (GOTCHAS DEL MAQUETADO):
+    - 💡 ¿Para qué sirve?: Son 'trampas típicas' del desarrollo web que frustran a los principiantes. Al documentarlas, la IA se asegura de blindar el código contra estos errores.
+    - 📌 Ejemplos de lo que puedes responder:
+      * "1. Evitar que la página tenga scroll horizontal roto en celulares agregando `overflow-x: hidden` en el contenedor, 2. Poner siempre atributo `alt` descriptivo en las fotos para accesibilidad, 3. Usar siempre etiquetas `&lt;button&gt;` para elementos cliqueables y no simples `&lt;div&gt;` o `&lt;span&gt;`, 4. Asegurar que los botones tengan texto blanco bien legible sobre fondos oscuros."
+
+============================================================
+Una vez que te responda a estas 14 preguntas:
+a) Valida que no queden dudas ni requisitos ambiguos.
+b) Guarda todas las respuestas consolidadas en tu memoria activa (mem_save) como base de conocimiento de nuestro proyecto.
+c) Confírmame que el contexto inicial quedó almacenado y listo para generar el Master Context en el siguiente paso.</code></pre>
+        </div>
+
+        <h3>🔍 3. Desglose Interactivo de las 14 Preguntas</h3>
+        <p>Haz clic en cualquier pregunta para consultar su propósito y ejemplos de respuesta:</p>
+
+        <div class="accordion">
+          <div class="accordion-item">
+            <button class="accordion-trigger">
+              <span>1. 🎯 Nombre y Propósito del Sitio Web</span>
+              <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+              <div class="q-purpose"><strong>💡 ¿Para qué sirve?:</strong> Define la identidad de tu página para que el agente cree títulos, textos y elementos coherentes con tu temática.</div>
+              <div class="q-examples"><strong>📌 Ejemplos:</strong> "Festival Cultural Río Cuarto 2026 (mostrar recitales y entradas)" o "Café & Libros Vintage (menú y reservas)".</div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger">
+              <span>2. 📖 Palabras Clave del Proyecto (Glosario)</span>
+              <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+              <div class="q-purpose"><strong>💡 ¿Para qué sirve?:</strong> Enseña a la IA el vocabulario de tu dominio para que use los términos correctos en botones y tarjetas.</div>
+              <div class="q-examples"><strong>📌 Ejemplos:</strong> "Lineup, Pase General, Escenario Principal, Feria Gastronómica" o "Combo Desayuno, Carrito".</div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger">
+              <span>3. 🧱 Secciones Principales de la Página (Wireframe)</span>
+              <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+              <div class="q-purpose"><strong>💡 ¿Para qué sirve?:</strong> Es el esqueleto de tu página. Le indica a la IA el orden de navegación.</div>
+              <div class="q-examples"><strong>📌 Ejemplos:</strong> "1. Barra superior, 2. Portada (Hero), 3. Grilla de tarjetas, 4. Formulario de reserva, 5. Footer".</div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger">
+              <span>4. 🖼️ Contenido de las Tarjetas y Datos de Muestra</span>
+              <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+              <div class="q-purpose"><strong>💡 ¿Para qué sirve?:</strong> Define los campos de cada tarjeta (foto, título, fecha, precio, botón) y aporta 4 a 6 datos de muestra para que no queden vacías.</div>
+              <div class="q-examples"><strong>📌 Ejemplos:</strong> "Foto, Título, Fecha, Precio, Botón 'Ver más'. Muestras: Noche de Rock, Tributo Jazz, Taller Cerámica".</div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger">
+              <span>5. 📝 Formulario Interactivo y Botones de Acción</span>
+              <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+              <div class="q-purpose"><strong>💡 ¿Para qué sirve?:</strong> Especifica qué datos solicitar (Nombre, Email, Menú desplegable) y qué confirmación visual mostrar al enviar.</div>
+              <div class="q-examples"><strong>📌 Ejemplos:</strong> "Pedir: Nombre, Email, Tipo de entrada y botón 'Confirmar Reserva' con toast verde de éxito".</div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger">
+              <span>6. 🌈 Paleta de Colores y Modo (Claro u Oscuro)</span>
+              <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+              <div class="q-purpose"><strong>💡 ¿Para qué sirve?:</strong> Transmite la personalidad visual y garantiza el contraste para lectura cómoda.</div>
+              <div class="q-examples"><strong>📌 Ejemplos:</strong> "Modo Oscuro con fondo azul pizarra (#0f172a), violeta neón (#8b5cf6) y botón para alternar a Modo Claro".</div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger">
+              <span>7. 🔤 Tipografía y Fuentes (Google Fonts)</span>
+              <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+              <div class="q-purpose"><strong>💡 ¿Para qué sirve?:</strong> Da estilo moderno y profesional.</div>
+              <div class="q-examples"><strong>📌 Ejemplos:</strong> "Usar 'Poppins' o 'Inter' de Google Fonts con títulos en negrita".</div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger">
+              <span>8. 📱 Adaptabilidad a Celulares (Diseño Responsive)</span>
+              <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+              <div class="q-purpose"><strong>💡 ¿Para qué sirve?:</strong> Más del 70% navega desde el móvil. Asegura 1 columna en celular y menú hamburguesa táctil.</div>
+              <div class="q-examples"><strong>📌 Ejemplos:</strong> "En desktop 3 columnas, en celular 1 columna con menú hamburguesa y botones anchos para dedos".</div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger">
+              <span>9. ✨ Efectos al Pasar el Mouse (Hover & Micro-interacciones)</span>
+              <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+              <div class="q-purpose"><strong>💡 ¿Para qué sirve?:</strong> Avisa visualmente al usuario qué elementos son interactivos.</div>
+              <div class="q-examples"><strong>📌 Ejemplos:</strong> "Al pasar el cursor por una tarjeta, elevar levemente con sombra suave y zoom sutil en la foto".</div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger">
+              <span>10. 🛠️ Framework CSS Elegido y Motivos</span>
+              <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+              <div class="q-purpose"><strong>💡 ¿Para qué sirve?:</strong> Evita mezclar clases incompatibles.</div>
+              <div class="q-examples"><strong>📌 Ejemplos:</strong> "TailwindCSS v3 vía CDN para maquetación rápida con clases de utilidad".</div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger">
+              <span>11. 💡 Interactividad Visual y Dinámica de Pantalla</span>
+              <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+              <div class="q-purpose"><strong>💡 ¿Para qué sirve?:</strong> Define cómo reacciona la página a los clics (modales, avisos, cambios de sección).</div>
+              <div class="q-examples"><strong>📌 Ejemplos:</strong> "Ventana modal con botón cerrar al tocar 'Ver detalles', aviso verde al enviar y botón Dark/Light".</div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger">
+              <span>12. ⛔ Límites Técnicos y Tecnologías Prohibidas</span>
+              <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+              <div class="q-purpose"><strong>💡 ¿Para qué sirve?:</strong> Pone freno a la IA para que no meta librerías pesadas ni backends innecesarios.</div>
+              <div class="q-examples"><strong>📌 Ejemplos:</strong> "NO React/Vue/Angular, NO bases de datos SQL/Firebase, NO backend Node/Python. HTML + Tailwind + JS puro".</div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger">
+              <span>13. 📋 Pasos de Trabajo y Checklist de Verificación (DoD)</span>
+              <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+              <div class="q-purpose"><strong>💡 ¿Para qué sirve?:</strong> Establece la lista de control de calidad antes de dar por terminada la entrega.</div>
+              <div class="q-examples"><strong>📌 Ejemplos:</strong> "1. Probar en tamaño móvil con F12, 2. Probar modales y filtros, 3. Verificar cero errores en consola JS".</div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger">
+              <span>14. ⚠️ Errores Comunes a Prevenir (Gotchas del Maquetado)</span>
+              <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+              <div class="q-purpose"><strong>💡 ¿Para qué sirve?:</strong> Blinda el código contra trampas clásicas de desarrollo web.</div>
+              <div class="q-examples"><strong>📌 Ejemplos:</strong> "Evitar scroll horizontal roto con overflow-x: hidden, alt en todas las imágenes y etiquetas &lt;button&gt; para clics".</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="script-practice" style="margin-top:1.5rem; background:var(--bg-surface-raised); padding:1.2rem; border-radius:12px; border:1px solid var(--border-medium);">
+          <h4 style="margin-top:0; color:var(--indigo);">🧪 Consigna Práctica del Alumno (Clase 4):</h4>
+          <ol style="margin-left:1.2rem; margin-top:0.5rem; color:var(--text-secondary); font-size:0.92rem; line-height:1.7;">
+            <li>Envía el <strong>Prompt 3</strong> a Antigravity 2.0.</li>
+            <li>Responde las 14 preguntas adaptadas a la idea de tu propio sitio web.</li>
+            <li>Comprueba que el agente confirme la validación y el guardado en memoria activa con <code>mem_save</code>.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           CLASE 5: MASTER CONTEXT & GEMINI.MD
+           ========================================== -->
+      <section id="clase-5" class="doc-section">
+        <div class="section-header">
+          <span class="section-tag">Clase 05 • Diapositivas 25 a 36</span>
+          <h2>📚 CLASE 05: Master Context: Autogeneración de los 6 Documentos & GEMINI.md</h2>
+        </div>
+
+        <div class="callout callout-important">
+          <div class="callout-header">📋 Enunciado Oficial de la Clase 5</div>
+          <p><strong>Autogeneración de los 6 Documentos de Contexto en `docs/contexto/` y Vinculación en GEMINI.md.</strong><br>
+          <em>Duración: 14 minutos | Formato: Generación de arquitectura viva | Insignia: 📚 Badge 3: Context Architect.</em></p>
+        </div>
+
+        <h3>🗺️ 1. El Ecosistema de los 6 Documentos en `docs/contexto/`</h3>
+        <div class="pillars-grid">
+          <div class="pillar-card">
+            <span class="pillar-num">DOC 1</span>
+            <h3>1. `arquitectura.md`</h3>
+            <p>Stack HTML5, TailwindCSS v3 CDN, mapa de archivos SPA y tecnologías estrictamente prohibidas.</p>
+          </div>
+          <div class="pillar-card">
+            <span class="pillar-num">DOC 2</span>
+            <h3>2. `convenciones.md`</h3>
+            <p>Etiquetas semánticas, paleta Dark/Light y <strong>Regla de Contraste Fuerte</strong> con la clase <code>.force-text-white</code>.</p>
+          </div>
+          <div class="pillar-card">
+            <span class="pillar-num">DOC 3</span>
+            <h3>3. `decisiones.md` (ADR)</h3>
+            <p>Registro cronológico con Fecha/Hora [ADR-001, ADR-002, ADR-003] y <strong>Regla de Autorización Obligatoria</strong> antes de cambios importantes.</p>
+          </div>
+          <div class="pillar-card">
+            <span class="pillar-num">DOC 4</span>
+            <h3>4. `glosario.md`</h3>
+            <p>Términos del negocio (eventos, pases, reservas) y componentes de interfaz (Hero, Navbar, Cards, Modales).</p>
+          </div>
+          <div class="pillar-card">
+            <span class="pillar-num">DOC 5</span>
+            <h3>5. `flujo-de-trabajo.md`</h3>
+            <p>Pasos del ciclo SDD (Explore ➔ Apply ➔ Verify) y checklist de Definition of Done (Criterio de Listo).</p>
+          </div>
+          <div class="pillar-card">
+            <span class="pillar-num">DOC 6</span>
+            <h3>6. `errores-conocidos.md`</h3>
+            <p>Registro de gotchas resueltos: corrección de scroll horizontal roto y cierre automático del menú hamburguesa móvil.</p>
+          </div>
+        </div>
+
+        <h3>🪄 2. Prompt Autogenerador de Master Context (Prompt 4)</h3>
+        <p>Pega este prompt en Antigravity para que lea las 14 respuestas en memoria y genere automáticamente los 6 archivos vinculándolos en <code>GEMINI.md</code>:</p>
+
+        <div class="code-box">
+          <div class="code-box-header">
+            <div class="code-box-meta">
+              <span class="code-type-badge">PROMPT 4</span>
+              <span class="code-hint">Master Context (6 Docs)</span>
+            </div>
+            <button class="copy-btn"><span>📋</span> <span>Copiar Prompt</span></button>
+          </div>
+          <pre class="code-pre"><code>Antigravity, lee las 14 respuestas de nuestra entrevista guardadas en tu memoria activa y genera automáticamente:
+
+1. Los 6 documentos de contexto en la carpeta docs/contexto/, uno por archivo (siguiendo el estándar SDD de https://github.com/Gentleman-Programming/gentle-ai):
+   - arquitectura.md       (Stack técnico de HTML5/TailwindCSS, mapa de módulos y tecnologías prohibidas)
+   - convenciones.md       (Etiquetas semánticas, paleta de colores CSS, tipografía y diseño responsive)
+   - decisiones.md         (Registro ordenado de decisiones con fecha/hora [ADR-XXX] y autorización previa obligatoria)
+   - glosario.md           (Términos del negocio del sitio web y componentes de interfaz)
+   - flujo-de-trabajo.md   (Pasos de maquetado SDD y Definition of Done)
+   - errores-conocidos.md  (Gotchas de maquetado, prevención de scroll roto y soluciones responsive)
+
+2. Vinculación Automática en GEMINI.md:
+   - Crea o actualiza automáticamente el archivo GEMINI.md en la raíz del proyecto enlazando:
+     * Reglas Globales → @.agents/rules/antigravity_global_rules.md
+     * Los 6 documentos de contexto → @docs/contexto/...
+
+3. Confirmación:
+   - Muestra el listado de archivos creados y confirma su vinculación.</code></pre>
+        </div>
+
+        <h3>🔍 3. Prompt Alternativo: Escaneo Directo de Repositorio Existente (Prompt 4.1)</h3>
+        <div class="code-box">
+          <div class="code-box-header">
+            <div class="code-box-meta">
+              <span class="code-type-badge">PROMPT 4.1</span>
+              <span class="code-hint">Escaneo Directo de Repositorio</span>
+            </div>
+            <button class="copy-btn"><span>📋</span> <span>Copiar Prompt</span></button>
+          </div>
+          <pre class="code-pre"><code>Lee mi proyecto entero (estructura de HTML, hojas de estilo CSS, uso de Frameworks CSS como Tailwind o Bootstrap, dependencias, código JavaScript, README) 
+y genera 6 documentos de contexto en docs/contexto/, uno por archivo (siguiendo la metodología de https://github.com/Gentleman-Programming/gentle-ai):
+
+1. arquitectura.md — stack de HTML5 y CSS/Frameworks, mapa de carpetas, flujo de datos, qué NO existe.
+2. convenciones.md — estilo de HTML semántico, naming de clases CSS/BEM o utilidades de Framework, patrones permitidos y prohibidos.
+3. decisiones.md — registro ordenado y cronológico de TODAS las decisiones tomadas con Fecha y Hora ([YYYY-MM-DD HH:mm]). Cada cosa que pida el usuario debe registrarse aquí. Si se requiere un cambio importante o estructural, DEBES pedir autorización explícita antes de ejecutarlo.
+4. glosario.md — términos del dominio, entidades de UI y siglas internas.
+5. flujo-de-trabajo.md — pasos para hacer un cambio de maquetado, checklist de "terminado" y validación responsive.
+6. errores-conocidos.md — gotchas de CSS/HTML que se intuyan del código, compatibilidad de navegadores y ajustes de Windows.
+
+7. Vinculación Automática: Crea o actualiza automáticamente el archivo `GEMINI.md` en la raíz del proyecto vinculando los 6 documentos creados con la sintaxis de referencia `@docs/contexto/...`.
+
+Reglas:
+- Básate SOLO en lo que veas en el repo. No inventes nada.
+- En decisiones.md, mantén un orden numérico y cronológico estricto con fecha y hora ([ADR-XXX] · [YYYY-MM-DD HH:mm]).
+- Si una instrucción del usuario implica un cambio importante (arquitectura, cambio de framework, borrado de archivos o librerías), solicita confirmación antes de aplicarlo y luego regístralo.
+- Si detectas TailwindCSS, Bootstrap o Vanilla CSS, especifícalo claramente en arquitectura.md y convenciones.md.
+- Genera el archivo GEMINI.md vinculando los 6 documentos sin requerir que el usuario lo escriba a mano.
+- Donde no haya información suficiente, deja un hueco marcado [PENDIENTE: ...] en vez de rellenar a ciegas.
+- Sé concreto y breve: cada doc se debe leer en menos de 2 minutos.</code></pre>
+        </div>
+
+        <div class="script-practice" style="margin-top:1.5rem; background:var(--bg-surface-raised); padding:1.2rem; border-radius:12px; border:1px solid var(--border-medium);">
+          <h4 style="margin-top:0; color:var(--indigo);">🧪 Ejercicio Práctico & Desbloqueo de Insignia 3:</h4>
+          <ol style="margin-left:1.2rem; margin-top:0.5rem; color:var(--text-secondary); font-size:0.92rem; line-height:1.7;">
+            <li>Envía el <strong>Prompt 4</strong> a Antigravity 2.0.</li>
+            <li>Verifica la creación de los 6 documentos en la carpeta <code>docs/contexto/</code>.</li>
+            <li>Abre <code>GEMINI.md</code> y comprueba que contenga los enlaces <code>@</code> hacia las reglas y los 6 archivos.</li>
+            <li>Desbloquea 📚 <strong>Badge 3: Context Architect</strong> en tu Hoja de Logros.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           CLASE 6: SKILLS & PODA INTELIGENTE
+           ========================================== -->
+      <section id="clase-6" class="doc-section">
+        <div class="section-header">
+          <span class="section-tag">Clase 06 • Diapositivas 37 a 42</span>
+          <h2>✂️ CLASE 06: Gestión de Skills Agenticas: Importación & Poda Inteligente</h2>
+        </div>
+
+        <div class="callout callout-important">
+          <div class="callout-header">📋 Enunciado Oficial de la Clase 6</div>
+          <p><strong>Auditoría holística en `.agents/skills/` y eliminación de skills superfluas usando todo el contexto.</strong><br>
+          <em>Duración: 12 minutos | Formato: Optimización de contexto y tokens | Insignia: ✂️ Badge 4: Skill Hunter.</em></p>
+        </div>
+
+        <h3>✂️ 1. Poda Inteligente & Optimización de Tokens</h3>
+        <p>Instalar cientos de habilidades irrelevantes genera <strong>inflación de contexto (Token Bloat)</strong>, ralentiza al modelo y puede provocar alucinaciones. La poda inteligente evalúa todo el contexto del proyecto para dejar solo las herramientas frontend necesarias:</p>
+
+        <div class="grid-2col" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1.2rem; margin:1.5rem 0;">
+          <div class="info-box border-red" style="padding:1.2rem; border-radius:12px; background:var(--bg-surface-raised); border-left:4px solid var(--rose);">
+            <h4 style="color:var(--rose); margin-top:0;">❌ Sobrecarga de Contexto (Token Bloat)</h4>
+            <p style="font-size:0.9rem; color:var(--text-secondary);">Skills de Node, Python, Flutter, Docker o bases de datos saturan la ventana de contexto y confunden al agente en tareas sencillas de HTML y CSS.</p>
+          </div>
+          <div class="info-box border-green" style="padding:1.2rem; border-radius:12px; background:var(--bg-surface-raised); border-left:4px solid var(--emerald);">
+            <h4 style="color:var(--emerald); margin-top:0;">✨ Poda Holística & Contextualizada</h4>
+            <p style="font-size:0.9rem; color:var(--text-secondary);">Antigravity conserva solo lo útil para frontend, accesibilidad web (<code>a11y</code>) y SDD, eliminando automáticamente carpetas incompatibles.</p>
+          </div>
+        </div>
+
+        <h3>📥 2. Prompt de Importación de Skills (Prompt 5.1)</h3>
+        <div class="code-box">
+          <div class="code-box-header">
+            <div class="code-box-meta">
+              <span class="code-type-badge">PROMPT 5.1</span>
+              <span class="code-hint">Importación de Skills</span>
+            </div>
+            <button class="copy-btn"><span>📋</span> <span>Copiar Prompt</span></button>
+          </div>
+          <pre class="code-pre"><code>Antigravity, por favor importa la biblioteca de skills para nuestro proyecto:
+1. Crea el directorio .agents/skills/ en la raíz del proyecto si no existe.
+2. Descarga o clona el repositorio https://github.com/sickn33/agentic-awesome-skills dentro de .agents/skills/.
+3. Muéstrame la lista de skills descargadas al finalizar.</code></pre>
+        </div>
+
+        <h3>✂️ 3. Prompt Maestro de Poda Contextualizada (Prompt 5.2 Completo)</h3>
+        <div class="code-box">
+          <div class="code-box-header">
+            <div class="code-box-meta">
+              <span class="code-type-badge">PROMPT 5.2 (COMPLETO)</span>
+              <span class="code-hint">Poda Inteligente Basada en Contexto</span>
+            </div>
+            <button class="copy-btn"><span>📋</span> <span>Copiar Prompt Completo</span></button>
+          </div>
+          <pre class="code-pre"><code>Antigravity, por favor realiza una auditoría y PODA INTELIGENTE de las skills en .agents/skills/ (descargadas desde https://github.com/sickn33/agentic-awesome-skills) evaluando los 6 documentos en docs/contexto/ y la metodología SDD (https://github.com/Gentleman-Programming/gentle-ai):
+
+1. EVALUACIÓN INTEGRAL DEL CONTEXTO:
+   - Stack y Arquitectura (docs/contexto/arquitectura.md): Framework CSS activo (ej. TailwindCSS), HTML5 semántico, JavaScript cliente.
+   - Interactividad y Diseño (docs/contexto/convenciones.md y decisiones.md): Modales, navegación SPA, diseño responsive mobile-first, accesibilidad web (a11y).
+   - Metodología y DoD (docs/contexto/flujo-de-trabajo.md): Ciclo SDD (explore, propose, apply, verify).
+   - Tecnologías Prohibidas: Lo que NO existe en el proyecto (ej: React, Vue, Python, Node/Express, Docker, SQL).
+
+2. CLASIFICACIÓN DE SKILLS:
+   - 🟢 CONSERVAR (Skills útiles para el desarrollo frontend y calidad):
+     * Maquetado y utilidades del framework activo (ej: TailwindCSS).
+     * HTML5 semántico, responsive design y accesibilidad web (a11y).
+     * Dinamismo de interfaz de usuario y eventos DOM en JavaScript.
+     * Metodología Spec-Driven Development (SDD: https://github.com/Gentleman-Programming/gentle-ai).
+   - 🔴 ELIMINAR / PODAR (Skills incompatibles o superfluas):
+     * Frameworks CSS no utilizados (ej: Bootstrap, Bulma, Sass si usamos Tailwind).
+     * Frameworks JS pesados no utilizados (ej: React, Vue, Angular, Svelte, Next.js).
+     * Tecnologías de Backend y Bases de Datos (ej: Node.js, Python, Docker, SQL, MongoDB, Go, Rust, Java).
+     * Desarrollo móvil nativo o desktop (ej: Flutter, React Native, Swift, Kotlin, Electron).
+
+3. ACCIÓN AUTOMÁTICA:
+   - Elimina automáticamente de .agents/skills/ las carpetas clasificadas como superfluas o incompatibles.
+   - Muéstrame el reporte final: lista de skills conservadas con su justificación y lista de skills podadas.</code></pre>
+        </div>
+
+        <div class="script-practice" style="margin-top:1.5rem; background:var(--bg-surface-raised); padding:1.2rem; border-radius:12px; border:1px solid var(--border-medium);">
+          <h4 style="margin-top:0; color:var(--indigo);">🧪 Ejercicio Práctico & Desbloqueo de Insignia 4:</h4>
+          <ol style="margin-left:1.2rem; margin-top:0.5rem; color:var(--text-secondary); font-size:0.92rem; line-height:1.7;">
+            <li>Envía el <strong>Prompt 5.1</strong> para clonar el catálogo de skills.</li>
+            <li>Envía el <strong>Prompt 5.2</strong> para ejecutar la poda inteligente.</li>
+            <li>Comprueba que en <code>.agents/skills/</code> solo queden habilidades relevantes para frontend y SDD.</li>
+            <li>Desbloquea ✂️ <strong>Badge 4: Skill Hunter</strong> en tu Hoja de Logros.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           CLASE 7: DESAFÍO INTEGRADOR & TITULACIÓN
+           ========================================== -->
+      <section id="clase-7" class="doc-section">
+        <div class="section-header">
+          <span class="section-tag">Clase 07 • Diapositivas 43 a 48</span>
+          <h2>🏆 CLASE 07: Desafío Integrador en Equipos (Proyecto en Equipo) & Titulación</h2>
+        </div>
+
+        <div class="callout callout-important">
+          <div class="callout-header">📋 Enunciado Oficial de la Clase 7</div>
+          <p><strong>Proyecto final asincrónico para el hogar aplicando los 5 Ejes de Complejidad Agentica.</strong><br>
+          <em>Duración: 15 minutos | Formato: Proyecto en equipo para el hogar | Titulación: 🏆 Full-Stack Agentic UI Developer (100 Puntos).</em></p>
+        </div>
+
+        <h3>🏡 1. Modalidad Asincrónica para el Hogar</h3>
+        <p>El desafío final se desarrolla <strong>en equipos</strong> de forma asincrónica en sus casas, sin límite de tiempo presencial, para alcanzar la máxima calidad estética, técnica y funcional.</p>
+
+        <h3>🏆 2. Los 5 Requisitos del Proyecto Final (Explicados Paso a Paso)</h3>
+        <div class="pillars-grid">
+          <div class="pillar-card">
+            <span class="pillar-num">REQUISITO 1</span>
+            <h3>1. Página Única con 3 Secciones (SPA sin recarga)</h3>
+            <p>Tu web vive en un solo archivo <code>index.html</code>. Al hacer clic en el menú, muestra u oculta secciones (Inicio, Catálogo de Tarjetas y Formulario de Contacto/Inscripción) de forma fluida e instantánea.</p>
+          </div>
+          <div class="pillar-card">
+            <span class="pillar-num">REQUISITO 2</span>
+            <h3>2. Contenido Maquetado & Modales Interactivos</h3>
+            <p>Tarjetas de catálogo maquetadas con fotos y textos de muestra (4 a 6 elementos), y ventanas emergentes (modales) con más detalles y botón de cierre al hacer clic.</p>
+          </div>
+          <div class="pillar-card">
+            <span class="pillar-num">REQUISITO 3</span>
+            <h3>3. Estilo Visual, Responsive & Microinteracciones</h3>
+            <p>Menú hamburguesa táctil para celulares, botón para alternar entre Modo Claro y Modo Oscuro (preservando el contraste con <code>.force-text-white</code>), y formulario con aviso visual verde de éxito.</p>
+          </div>
+          <div class="pillar-card">
+            <span class="pillar-num">REQUISITO 4</span>
+            <h3>4. Documentación Viva (Master Context en docs/contexto/)</h3>
+            <p>Los 6 archivos Markdown generados en clase vinculados en <code>GEMINI.md</code> para que Antigravity siempre conozca tus colores, reglas y límites técnicos.</p>
+          </div>
+          <div class="pillar-card">
+            <span class="pillar-num">REQUISITO 5</span>
+            <h3>5. Desarrollo Ordenado & Definition of Done (DoD)</h3>
+            <p>Planificación adaptativa, validación visual de los 4 estados (Loading, Empty, Error, Success) y entrega de <code>REPORTE_VERIFICACION_SDD.md</code>.</p>
+          </div>
+        </div>
+
+        <h3>💻 3. Proyecto de Referencia: CultivaRío 2026 (`demo_app/`)</h3>
+        <p>En la carpeta <code>demo_app/</code> cuentas con una aplicación de referencia completa de 100 puntos:</p>
+        <div class="pillars-grid">
+          <div class="pillar-card">
+            <span class="pillar-num">VISTA</span>
+            <h3>`demo_app/index.html`</h3>
+            <p>Maquetado con TailwindCSS, estructura SPA de 3 pantallas (Inicio, Catálogo y Formulario) y modales interactivos.</p>
+          </div>
+          <div class="pillar-card">
+            <span class="pillar-num">DINAMISMO</span>
+            <h3>`demo_app/app.js`</h3>
+            <p>Navegación fluida entre vistas, modales emergentes, menú móvil y alternancia de Modo Oscuro / Claro.</p>
+          </div>
+          <div class="pillar-card">
+            <span class="pillar-num">CONTEXTO</span>
+            <h3>`demo_app/docs/contexto/`</h3>
+            <p>Los 6 documentos de Master Context autogenerados y vinculados en <code>GEMINI.md</code> para este festival.</p>
+          </div>
+        </div>
+
+        <h3>📊 4. Rúbrica Oficial de Evaluación (100 Puntos)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Criterio de Evaluación</th>
+                <th>Descripción Detallada</th>
+                <th>Puntaje</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Diseño Visual & UI Premium</strong></td>
+                <td>Estética visual limpia, adaptabilidad responsive estricta en celulares, Modo Claro/Oscuro y contraste verificado.</td>
+                <td><span class="badge-tag" style="background:var(--amber-soft); color:var(--amber); font-weight:700;">25 pts</span></td>
+              </tr>
+              <tr>
+                <td><strong>Interactividad Visual & UI Feedback</strong></td>
+                <td>Navegación entre vistas sin recarga, modales emergentes funcionales, menú móvil y feedback visual en formularios.</td>
+                <td><span class="badge-tag" style="background:var(--amber-soft); color:var(--amber); font-weight:700;">25 pts</span></td>
+              </tr>
+              <tr>
+                <td><strong>Antigravity, SDD & DoD</strong></td>
+                <td>Reglas globales activas, cumplimiento de Definition of Done con 4 estados UI y reporte <code>REPORTE_VERIFICACION_SDD.md</code>.</td>
+                <td><span class="badge-tag" style="background:var(--amber-soft); color:var(--amber); font-weight:700;">20 pts</span></td>
+              </tr>
+              <tr>
+                <td><strong>Memoria Engram & Bitácora</strong></td>
+                <td>Registro continuo con <code>mem_save</code>, trazabilidad y resumen final de sesión con <code>mem_session_summary</code>.</td>
+                <td><span class="badge-tag" style="background:var(--amber-soft); color:var(--amber); font-weight:700;">15 pts</span></td>
+              </tr>
+              <tr>
+                <td><strong>Master Context & Reglas Globales</strong></td>
+                <td>Completitud de los 6 documentos en <code>docs/contexto/</code> y reglas globales vinculadas con <code>@</code> en <code>GEMINI.md</code>.</td>
+                <td><span class="badge-tag" style="background:var(--amber-soft); color:var(--amber); font-weight:700;">15 pts</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>📦 5. Los 4 Entregables Requeridos del Equipo:</h3>
+        <ol style="margin-left:1.2rem; color:var(--text-secondary); font-size:0.92rem; line-height:1.7;">
+          <li>Repositorio de Código en GitHub o carpeta ZIP del proyecto con el sitio web funcional.</li>
+          <li>Carpeta <code>docs/contexto/</code> completa con los 6 archivos vinculados en <code>GEMINI.md</code>.</li>
+          <li>Historial de memoria Engram y reporte <code>REPORTE_VERIFICACION_SDD.md</code>.</li>
+          <li>Video demo corto (2 a 3 min) grabado por el equipo mostrando la página funcionando en Modo Claro y Oscuro.</li>
+        </ol>
+
+        <div class="trophy-box" style="margin-top:2rem; text-align:center; padding:2rem; background:linear-gradient(135deg, rgba(67,56,202,0.12), rgba(180,83,9,0.15)); border-radius:16px; border:2px solid var(--amber);">
+          <span style="font-size:3.5rem;">🏆</span>
+          <h3 style="font-size:1.6rem; color:var(--amber); margin:0.5rem 0;">Titulación Oficial del Seminario</h3>
+          <div style="font-size:1.8rem; font-weight:800; font-family:'Fraunces',serif; color:var(--text-primary);">
+            Full-Stack Agentic UI Developer
+          </div>
+          <p style="font-size:0.9rem; color:var(--text-secondary); margin-top:0.5rem;">
+            Google Antigravity 2.0 • Global Rules & OS • Gentle-AI SDD • Memoria Engram • Master Context
+          </p>
+        </div>
+      </section>
+
+      <!-- METODOLOGIA GENTLE-AI SDD -->
+      <section id="gentle-sdd" class="doc-section">
+        <div class="section-header">
+          <span class="section-tag">Metodología de Desarrollo</span>
+          <h2>🛡️ Tutorial Pedagógico Gentle-AI & Spec-Driven Development (SDD)</h2>
+        </div>
+        <p>El estándar <strong>Spec-Driven Development (SDD)</strong> de <a href="https://github.com/Gentleman-Programming/gentle-ai" target="_blank" rel="noopener noreferrer">Gentle-AI</a> estructura el desarrollo en fases claras para asegurar calidad profesional:</p>
+
+        <div class="pillars-grid">
+          <div class="pillar-card">
+            <span class="pillar-num">FASE 1</span>
+            <h3>Exploración (`/sdd-explore`)</h3>
+            <p>Investiga la codebase y compara enfoques sin modificar ningún archivo.</p>
+          </div>
+          <div class="pillar-card">
+            <span class="pillar-num">FASE 2</span>
+            <h3>Especificación (`/sdd-propose` & `/sdd-spec`)</h3>
+            <p>Documenta requisitos funcionales y contratos antes de codificar.</p>
+          </div>
+          <div class="pillar-card">
+            <span class="pillar-num">FASE 3</span>
+            <h3>Tareas (`/sdd-tasks`)</h3>
+            <p>Genera el checklist atómico para ejecución por lotes.</p>
+          </div>
+          <div class="pillar-card">
+            <span class="pillar-num">FASE 4</span>
+            <h3>Aplicación (`/sdd-apply`)</h3>
+            <p>Implementa cambios marcando los ítems completados en tiempo real.</p>
+          </div>
+          <div class="pillar-card">
+            <span class="pillar-num">FASE 5</span>
+            <h3>Verificación (`/sdd-verify`)</h3>
+            <p>Valida contra las specs y genera <code>REPORTE_VERIFICACION_SDD.md</code>.</p>
+          </div>
+          <div class="pillar-card">
+            <span class="pillar-num">FASE 6</span>
+            <h3>Memoria (Engram)</h3>
+            <p>Persistencia continua con <code>mem_save</code> y <code>mem_session_summary</code>.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PLANTILLAS OFICIALES -->
+      <section id="plantillas-contexto" class="doc-section">
+        <div class="section-header">
+          <span class="section-tag">Master Context</span>
+          <h2>📁 Las 7 Plantillas Oficiales de Contexto & GEMINI.md</h2>
+        </div>
+        <p>A continuación se detallan las plantillas oficiales completas que Antigravity autogenera e integra en el proyecto. Puedes revisarlas o copiarlas como referencia técnica:</p>
+
+        <!-- PLANTILLA 0: REGLAS GLOBALES -->
+        <h3 style="margin-top:2rem;">0. Reglas Globales (`.agents/rules/antigravity_global_rules.md`)</h3>
+        <p>Constitución del agente con directiva <code>trigger: always_on</code> y los 6 pilares maestros:</p>
+        <div class="code-box">
+          <div class="code-box-header">
+            <span>.agents/rules/antigravity_global_rules.md</span>
+            <button class="copy-btn"><span>📋</span> <span>Copiar</span></button>
+          </div>
+          <pre><code>---
+trigger: always_on
+description: "Antigravity Operating System - Reglas Globales y Protocolo de Comportamiento"
+---
+
+# ANTIGRAVITY OPERATING SYSTEM (AGY-OS)
+
+## 1. PERSONA Y MENTALIDAD
+- **Rol**: Senior Product Engineer & UI Architect.
+- **Mentalidad**: Velocidad de entrega (speed-to-market), código limpio, robusto y experiencia visual impecable.
+- **Principio Fundamental**: *Explicar el POR QUÉ antes del CÓMO* (Why before How).
+
+## 2. TECH STACK DEFAULTS (FRONTEND MODERNO)
+- **Lenguajes**: HTML5 Semántico, JavaScript ES6+ / TypeScript, CSS3 Moderno.
+- **Framework CSS**: TailwindCSS v3 (vía CDN o compilado) o Bootstrap 5 según elección.
+- **Arquitectura UI**: SPA multi-vista en `index.html` con gestión de vistas en DOM y modales interactivos.
+- **Persistencia**: LocalStorage / SessionStorage del navegador.
+
+## 3. DEFINITION OF DONE (DoD) & VALIDACIÓN VISUAL DE 4 ESTADOS
+Antes de marcar una tarea como completada, se debe verificar:
+1. **Justificación Técnica**: Explicar por qué se eligió la solución.
+2. **Validación de Tipos y Errores**: Cero errores en consola o terminal.
+3. **Verificación de 4 Estados de UI**:
+   - ⏳ *Loading*: Spinners, skeletons o estados de transición suaves.
+   - 📭 *Empty*: Mensajes ilustrativos cuando no hay datos.
+   - ⚠️ *Error*: Feedback claro y opción de reintento.
+   - ✨ *Success*: Confirmación visual de operaciones exitosas.
+4. **Limpieza de Código**: Cero archivos temporales o código muerto.
+
+## 4. CONTROL DE GUARDAS (BUSINESS & PRODUCT GUARDS)
+- Antes de modificar reglas de negocio (`REGLAS_DE_NEGOCIO.md`), decisiones arquitectónicas (`decisiones.md`) o esquemas de datos:
+  - Explicar claramente el impacto.
+  - Solicitar confirmación explícita del usuario.
+
+## 5. CONTEXTO VIVO DEL PROYECTO (MASTER CONTEXT)
+- Mantener y consultar activamente los 6 documentos en `docs/contexto/`:
+  1. `arquitectura.md` (Stack y estructura).
+  2. `convenciones.md` (Estilos, paleta de colores y reglas CSS).
+  3. `decisiones.md` (ADRs cronológicos con fecha/hora).
+  4. `glosario.md` (Términos del dominio y componentes).
+  5. `flujo-de-trabajo.md` (Pasos SDD y Criterio de Listo).
+  6. `errores-conocidos.md` (Gotchas resueltos y bugs prevenidos).
+
+## 6. SDD ADAPTATIVO & MEMORIA ENGRAM
+- **Fast-Path**: Para correcciones de 1 archivo o cambios triviales, aplicar directamente con DoD.
+- **Ciclo SDD Completo**: Para cambios que afecten a 2 o más archivos, seguir el flujo estructurado:
+  `sdd-explore` ➔ `sdd-propose` / `sdd-spec` ➔ `sdd-tasks` ➔ `sdd-apply` ➔ `sdd-verify`.
+  *(Basado en https://github.com/Gentleman-Programming/gentle-ai)*.
+- **Persistencia Engram**:
+  - `mem_save`: Guardar proactivamente decisiones, bugs resueltos y gotchas.
+  - `mem_context` / `mem_search`: Consultar memoria antes de cambios arquitectónicos.
+  - `mem_session_summary`: Resumir el progreso al cerrar la sesión.</code></pre>
+        </div>
+
+        <!-- PLANTILLA 1: GEMINI.MD -->
+        <h3 style="margin-top:2rem;">1. Conector Maestro (`GEMINI.md`)</h3>
+        <p>Ubicado en la raíz del proyecto para vincular automáticamente las reglas y los 6 documentos de contexto:</p>
+        <div class="code-box">
+          <div class="code-box-header">
+            <span>GEMINI.md (Raíz del proyecto)</span>
+            <button class="copy-btn"><span>📋</span> <span>Copiar</span></button>
+          </div>
+          <pre><code># CONECTOR MAESTRO DE CONTEXTO — GOOGLE ANTIGRAVITY 2.0
+
+## Reglas Globales & Operación
+- Reglas Globales ➔ @.agents/rules/antigravity_global_rules.md
+
+## Master Context (6 Documentos Vivos)
+- Arquitectura & Stack ➔ @docs/contexto/arquitectura.md
+- Convenciones & Estilos ➔ @docs/contexto/convenciones.md
+- Decisiones Técnicas (ADR) ➔ @docs/contexto/decisiones.md
+- Glosario del Proyecto ➔ @docs/contexto/glosario.md
+- Flujo de Trabajo (DoD) ➔ @docs/contexto/flujo-de-trabajo.md
+- Errores Conocidos (Gotchas) ➔ @docs/contexto/errores-conocidos.md</code></pre>
+        </div>
+
+        <!-- PLANTILLA 2: ARQUITECTURA.MD -->
+        <h3 style="margin-top:2rem;">2. Arquitectura (`docs/contexto/arquitectura.md`)</h3>
+        <p>Define el stack técnico, mapa de archivos y límites técnicos del sitio web:</p>
+        <div class="code-box">
+          <div class="code-box-header">
+            <span>docs/contexto/arquitectura.md</span>
+            <button class="copy-btn"><span>📋</span> <span>Copiar</span></button>
+          </div>
+          <pre><code># ARQUITECTURA DEL PROYECTO
+
+## 1. VISIÓN GENERAL
+- **Nombre del Proyecto**: [Nombre del Sitio Web]
+- **Propósito**: [Descripción del objetivo y público del sitio web]
+- **Tipo de Aplicación**: Single Page Application (SPA) interactiva en el cliente.
+
+## 2. STACK TECNOLÓGICO
+- **Markup**: HTML5 Semántico (`&lt;header&gt;`, `&lt;nav&gt;`, `&lt;main&gt;`, `&lt;section&gt;`, `&lt;article&gt;`, `&lt;footer&gt;`).
+- **Estilos**: TailwindCSS v3 (vía CDN: `https://cdn.tailwindcss.com`) + `style.css` para microinteracciones.
+- **Lógica**: Vanilla JavaScript (ES6+) estructurado en módulos o funciones limpias en `app.js`.
+- **Iconografía & Tipografía**: Google Fonts (Poppins / Inter) + Emojis / SVG inline.
+
+## 3. ESTRUCTURA DE DIRECTORIOS
+```text
+mi-proyecto/
+├── index.html                     # Maquetado principal con estructura SPA
+├── app.js                         # Interactividad, modales y lógica DOM
+├── style.css                      # Estilos personalizados y variables CSS
+├── GEMINI.md                      # Conector de contexto Antigravity
+├── .agents/
+│   ├── rules/
+│   │   └── antigravity_global_rules.md  # Reglas globales always_on
+│   └── skills/                    # Skills podadas del proyecto
+└── docs/
+    └── contexto/
+        ├── arquitectura.md
+        ├── convenciones.md
+        ├── decisiones.md
+        ├── glosario.md
+        ├── flujo-de-trabajo.md
+        └── errores-conocidos.md
+```
+
+## 4. TECNOLOGÍAS PROHIBIDAS (LÍMITES DEL PROYECTO)
+- ❌ No utilizar frameworks JS complejos (React, Vue, Angular, Svelte).
+- ❌ No utilizar backend de servidor (Node.js, Express, Python, Django).
+- ❌ No utilizar bases de datos SQL o Firebase.
+- ❌ No utilizar estilos inline (`style="..."`).</code></pre>
+        </div>
+
+        <!-- PLANTILLA 3: CONVENCIONES.MD -->
+        <h3 style="margin-top:2rem;">3. Convenciones (`docs/contexto/convenciones.md`)</h3>
+        <p>Estándares de HTML5 semántico, paleta de colores CSS y diseño responsive:</p>
+        <div class="code-box">
+          <div class="code-box-header">
+            <span>docs/contexto/convenciones.md</span>
+            <button class="copy-btn"><span>📋</span> <span>Copiar</span></button>
+          </div>
+          <pre><code># CONVENCIONES Y GUÍA DE ESTILOS
+
+## 1. PALETA DE COLORES (VARIABLES CSS / TAILWIND)
+- **Fondo Oscuro Principal**: `#0f172a` (`bg-slate-900`)
+- **Fondo Oscuro Tarjetas**: `#1e293b` (`bg-slate-800`)
+- **Fondo Claro Principal**: `#f8fafc` (`bg-slate-50`)
+- **Fondo Claro Tarjetas**: `#ffffff` (`bg-white`)
+- **Color Primario (Acento)**: `#9333ea` (`purple-600`) / Hover: `#7e22ce` (`purple-700`)
+- **Color Secundario (Acento)**: `#06b6d4` (`cyan-500`) / Hover: `#0891b2` (`cyan-600`)
+- **Éxito (Feedback)**: `#10b981` (`emerald-500`)
+- **Error (Alerta)**: `#ef4444` (`red-500`)
+
+## 2. REGLA DE CONTRASTE FUERTE
+- Todos los botones sólidos con fondos coloreados (violeta, verde, rojo) deben incluir la clase `.force-text-white` o `text-white` para garantizar legibilidad absoluta tanto en Modo Claro como en Modo Oscuro.
+
+## 3. CONVENCIONES HTML5 & ACCESIBILIDAD
+- Usar siempre etiquetas `&lt;button&gt;` para elementos cliqueables (nunca `&lt;div&gt;` o `&lt;span&gt;` huérfanos).
+- Incluir atributo `alt` descriptivo en todas las imágenes.
+- Estructurar encabezados en orden jerárquico (`&lt;h1&gt;`, `&lt;h2&gt;`, `&lt;h3&gt;`).
+- Formularios con etiquetas `&lt;label&gt;` vinculadas por `for` e inputs con `required`.
+
+## 4. BREAKPOINTS RESPONSIVE (MOBILE-FIRST)
+- **Móvil (< 768px)**: 1 columna, menú hamburguesa desplegable, botones anchos de fácil toque (mínimo 44px de alto).
+- **Tablet (768px - 1024px)**: 2 columnas en catálogo.
+- **Escritorio (> 1024px)**: 3 columnas en catálogo, navegación horizontal visible.</code></pre>
+        </div>
+
+        <!-- PLANTILLA 4: DECISIONES.MD -->
+        <h3 style="margin-top:2rem;">4. Decisiones de Arquitectura (`docs/contexto/decisiones.md`)</h3>
+        <p>Registro cronológico con Fecha/Hora [ADR-XXX] y cláusula de autorización previa obligatoria:</p>
+        <div class="code-box">
+          <div class="code-box-header">
+            <span>docs/contexto/decisiones.md</span>
+            <button class="copy-btn"><span>📋</span> <span>Copiar</span></button>
+          </div>
+          <pre><code># REGISTRO DE DECISIONES DE ARQUITECTURA (ADR)
+
+> ⚠️ **REGLA DE ORO DE AUTORIZACIÓN OBLIGATORIA**:
+> Cualquier cambio que modifique el framework CSS, altere la estructura de vistas SPA o elimine archivos existentes **requiere autorización previa explícita del usuario** antes de realizarse.
+
+---
+
+### [ADR-001] · [2026-08-18 10:15] — Elección de TailwindCSS v3 vía CDN
+- **Estado**: Aprobado
+- **Contexto**: Se necesita maquetar rápidamente una interfaz atractiva y moderna sin configurar herramientas de compilación pesadas.
+- **Decisión**: Usar TailwindCSS v3 cargado vía CDN con configuración personalizada de colores.
+- **Consecuencias**: Desarrollo ágil, código limpio en HTML y cero dependencias de Node.js en desarrollo local.
+
+---
+
+### [ADR-002] · [2026-08-18 10:30] — Arquitectura SPA Multi-Vista en un solo HTML
+- **Estado**: Aprobado
+- **Contexto**: El sitio debe contar con secciones de Inicio, Catálogo y Formulario con navegación fluida y sin recargas de página.
+- **Decisión**: Estructurar las secciones dentro de un único `index.html` con alternancia de visibilidad (`hidden` / `active`) gestionada en `app.js`.
+- **Consecuencias**: Navegación instantánea, compatibilidad total con servidores estáticos y código fácil de entender para estudiantes.
+
+---
+
+### [ADR-003] · [2026-08-18 11:00] — Sistema de Modales para Detalle de Tarjetas
+- **Estado**: Aprobado
+- **Contexto**: Cada tarjeta del catálogo debe permitir al usuario ver información detallada sin salir de la vista actual.
+- **Decisión**: Implementar una ventana modal emergente con fondo backdrop semitransparente, botón de cierre y cierre con tecla Escape.
+- **Consecuencias**: Experiencia de usuario interactiva y profesional con JavaScript ligero.</code></pre>
+        </div>
+
+        <!-- PLANTILLA 5: GLOSARIO.MD -->
+        <h3 style="margin-top:2rem;">5. Glosario (`docs/contexto/glosario.md`)</h3>
+        <p>Definición de términos del negocio y componentes de la interfaz de usuario:</p>
+        <div class="code-box">
+          <div class="code-box-header">
+            <span>docs/contexto/glosario.md</span>
+            <button class="copy-btn"><span>📋</span> <span>Copiar</span></button>
+          </div>
+          <pre><code># GLOSARIO DEL PROYECTO
+
+## 1. TÉRMINOS DEL DOMINIO
+- **Nombre de la Web**: [Nombre del Sitio]
+- **Entidad Principal**: [Ej: Recitales / Productos / Mascotas / Talleres]
+- **Categoría**: Clasificación temática de las tarjetas de muestra.
+- **Pase / Reserva**: Registro interactivo generado desde el formulario.
+
+## 2. COMPONENTES DE INTERFAZ (UI)
+- **Hero Section**: Portada principal con título de alto impacto, subtítulo y botón de llamado a la acción (CTA).
+- **Catálogo / Grilla**: Sección con diseño responsive donde se renderizan las tarjetas de datos de muestra.
+- **Card (Tarjeta)**: Bloque visual que contiene imagen, título, datos clave, descripción breve y botón de acción.
+- **Modal de Detalle**: Ventana emergente superpuesta que muestra información ampliada del elemento seleccionado.
+- **Navbar**: Barra de navegación superior con logotipo, enlaces de secciones y botón de cambio de tema.
+- **Menu Drawer / Hamburguesa**: Menú desplegable lateral para pantallas móviles.
+- **Dark/Light Mode**: Selector visual que alterna la paleta de colores entre modo nocturno y modo diurno.</code></pre>
+        </div>
+
+        <!-- PLANTILLA 6: FLUJO-DE-TRABAJO.MD -->
+        <h3 style="margin-top:2rem;">6. Flujo de Trabajo (`docs/contexto/flujo-de-trabajo.md`)</h3>
+        <p>Metodología de trabajo, ciclo SDD adaptativo y Definition of Done:</p>
+        <div class="code-box">
+          <div class="code-box-header">
+            <span>docs/contexto/flujo-de-trabajo.md</span>
+            <button class="copy-btn"><span>📋</span> <span>Copiar</span></button>
+          </div>
+          <pre><code># FLUJO DE TRABAJO & CONTROL DE CALIDAD
+
+## 1. METODOLOGÍA SPEC-DRIVEN DEVELOPMENT (SDD)
+Siguiendo las mejores prácticas de https://github.com/Gentleman-Programming/gentle-ai:
+
+1. **Exploración (`sdd-explore`)**:
+   - Analizar el requerimiento, leer el contexto en `docs/contexto/` y comprobar compatibilidad.
+2. **Propuesta / Especificación (`sdd-propose` / `sdd-spec`)**:
+   - Definir qué se modificará y validar que no infrinja las tecnologías prohibidas.
+3. **Plan de Tareas (`sdd-tasks`)**:
+   - Dividir la implementación en pasos atómicos y claros.
+4. **Aplicación (`sdd-apply`)**:
+   - Escribir el código HTML/CSS/JS cumpliendo las convenciones de estilo.
+5. **Verificación (`sdd-verify`)**:
+   - Comprobar la checklist de calidad y registrar el reporte en `REPORTE_VERIFICACION_SDD.md`.
+
+## 2. CHECKLIST DE VERIFICACIÓN (CRITERIO DE LISTO)
+- [ ] La página abre sin errores en el navegador web.
+- [ ] Se probó en vista móvil (F12 / Modo Responsive) y no tiene scroll horizontal roto (`overflow-x: hidden`).
+- [ ] Todos los botones y enlaces realizan su acción correctamente.
+- [ ] Los modales abren con la información correcta y se cierran con el botón o tecla Escape.
+- [ ] La paleta de colores y el contraste se verificaron en Modo Claro y Modo Oscuro.
+- [ ] Cero errores rojos en la consola de herramientas de desarrollo (F12 ➔ Console).</code></pre>
+        </div>
+
+        <!-- PLANTILLA 7: ERRORES-CONOCIDOS.MD -->
+        <h3 style="margin-top:2rem;">7. Errores Conocidos (`docs/contexto/errores-conocidos.md`)</h3>
+        <p>Registro de trampas comunes (gotchas) y sus soluciones comprobadas:</p>
+        <div class="code-box">
+          <div class="code-box-header">
+            <span>docs/contexto/errores-conocidos.md</span>
+            <button class="copy-btn"><span>📋</span> <span>Copiar</span></button>
+          </div>
+          <pre><code># ERRORES CONOCIDOS & GOTCHAS DE MAQUETADO
+
+### [GOTCHA-001] — Scroll Horizontal Involuntario en Celulares
+- **Síntoma**: La página se desborda horizontalmente hacia la derecha en pantallas pequeñas.
+- **Causa**: Algún elemento hijo tiene ancho fijo superior a la pantalla (ej: `w-[500px]`) o márgenes negativos sin contención.
+- **Solución**: Aplicar `overflow-x: hidden;` en el contenedor `&lt;body&gt;` o `&lt;main&gt;` y usar anchos porcentuales (`w-full`, `max-w-md`).
+
+---
+
+### [GOTCHA-002] — Texto Ilegible en Modo Claro (Contraste Pobre)
+- **Síntoma**: Al alternar a Modo Claro, el texto de los botones violetas o verdes se vuelve negro o transparente.
+- **Causa**: Herencia involuntaria de clases `text-slate-900` del contenedor padre.
+- **Solución**: Forzar `color: #ffffff !important;` en botones coloreados o asignar la clase `text-white force-text-white`.
+
+---
+
+### [GOTCHA-003] — Menú Móvil Bloqueado tras Navegar
+- **Síntoma**: Al hacer clic en un enlace del menú móvil, la sección cambia pero el menú lateral permanece abierto tapando la vista.
+- **Causa**: Falta el disparador de cierre automático en los listeners de los enlaces de navegación.
+- **Solución**: Agregar llamada a `closeMenu()` en el evento `click` de cada enlace dentro del drawer móvil.</code></pre>
+        </div>
+      </section>
+
+      <!-- PROYECTO DEMO -->
+      <section id="demo-app" class="doc-section">
+        <div class="section-header">
+          <span class="section-tag">Referencia Real</span>
+          <h2>💻 App Demo CultivaRío 2026: La Carpeta `demo_app/`</h2>
+        </div>
+        <p>En la carpeta <code>demo_app/</code> encontrarás el código fuente completo de una aplicación real terminada de 100 puntos: <strong>CultivaRío 2026</strong> (Plataforma del Festival Cultural de Río Cuarto).</p>
+
+        <div class="pillars-grid">
+          <div class="pillar-card">
+            <h3>📁 `.agents/rules/`</h3>
+            <p>Contiene <code>antigravity_global_rules.md</code> con las directivas de comportamiento permanente.</p>
+          </div>
+          <div class="pillar-card">
+            <h3>🌐 `index.html`</h3>
+            <p>Maquetado completo en HTML5 y TailwindCSS con estructura SPA de 3 secciones (Inicio, Catálogo y Formulario).</p>
+          </div>
+          <div class="pillar-card">
+            <h3>⚡ `app.js` y `style.css`</h3>
+            <p>Dinamismo visual (modales con botón cerrar, menú hamburguesa móvil y selector de Modo Claro/Oscuro).</p>
+          </div>
+          <div class="pillar-card">
+            <h3>📚 `GEMINI.md` & `docs/contexto/`</h3>
+            <p>Los 6 documentos de Master Context autogenerados con ADRs fechados y glosario del festival.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- HOJA DE LOGROS / BADGES -->
+      <section id="logros" class="doc-section">
+        <div class="section-header">
+          <span class="section-tag">Gamificación</span>
+          <h2>🎖️ Tu Hoja de Logros (Badges y Titulación)</h2>
+        </div>
+        <p>Haz clic en cada badge para marcarlo como completado a medida que avances en el seminario. Tu progreso se guarda automáticamente en tu navegador:</p>
+
+        <div class="badges-container">
+          <div class="badges-header">
+            <div>
+              <strong style="font-size:1.1rem;">Progreso de Maestría Agentica</strong>
+              <div id="badge-counter" style="font-size:0.85rem; color:var(--text-muted); font-family:'JetBrains Mono';">0 de 5 (0%)</div>
+            </div>
+            <div class="badge-progress-wrap">
+              <div id="badge-progress-fill" class="badge-progress-fill"></div>
+            </div>
+          </div>
+
+          <div class="badges-list">
+            <!-- Badge 1 -->
+            <div class="badge-item">
+              <div class="badge-checkbox">✓</div>
+              <div class="badge-item-content">
+                <div class="badge-item-title">🎖️ Badge 1: Antigravity Pilot</div>
+                <div class="badge-item-desc">Auto-instalación transparente de Node.js, Git y PowerShell en Windows con winget en la Clase 2.</div>
+              </div>
+            </div>
+
+            <!-- Badge 2 -->
+            <div class="badge-item">
+              <div class="badge-checkbox">✓</div>
+              <div class="badge-item-content">
+                <div class="badge-item-title">🛡️ Badge 2: Gentle-AI Knight</div>
+                <div class="badge-item-desc">Antigravity Global Rules, SDD Adaptativo y Memoria Engram activos y persistidos con `trigger: always_on` en la Clase 3.</div>
+              </div>
+            </div>
+
+            <!-- Badge 3 -->
+            <div class="badge-item">
+              <div class="badge-checkbox">✓</div>
+              <div class="badge-item-content">
+                <div class="badge-item-title">📚 Badge 3: Context Architect</div>
+                <div class="badge-item-desc">Los 6 documentos de Master Context autogenerados en `docs/contexto/` y vinculados en `GEMINI.md` en la Clase 5.</div>
+              </div>
+            </div>
+
+            <!-- Badge 4 -->
+            <div class="badge-item">
+              <div class="badge-checkbox">✓</div>
+              <div class="badge-item-content">
+                <div class="badge-item-title">✂️ Badge 4: Skill Hunter</div>
+                <div class="badge-item-desc">Importación y poda contextualizada de skills finalizada con Agentic Awesome Skills en la Clase 6.</div>
+              </div>
+            </div>
+
+            <!-- Boss Final -->
+            <div class="badge-item">
+              <div class="badge-checkbox">✓</div>
+              <div class="badge-item-content">
+                <div class="badge-item-title">🏆 Boss Defeated: Full-Stack Agentic UI Developer</div>
+                <div class="badge-item-desc">Desafío Integrador Asincrónico en Equipos finalizado con los 5 requisitos aprobados (100 pts) en la Clase 7.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="doc-footer">
+        <div>
+          © 2026 Seminario Google Antigravity 2.0 • Programación II - Desarrollo de Software - iTec
+        </div>
+        <div>
+          Diseñado con estética editorial y desarrollo agentico.
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Botones de Acción Flotantes para Celulares -->
+  <div class="floating-actions">
+    <button id="btn-quick-menu" class="floating-btn">☰ Menú</button>
+    <button id="btn-scroll-top" class="floating-btn" style="padding:0.65rem 0.85rem;" title="Subir al inicio">⬆</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
